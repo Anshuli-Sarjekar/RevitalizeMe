@@ -573,7 +573,7 @@ def logout():
 #     return ''
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
 
 with app.app_context():
     db.create_all()  # Create database tables
