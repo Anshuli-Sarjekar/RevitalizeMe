@@ -1,0 +1,347 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #451952;
+}
+
+header {
+    background-color: #f39f5a; /*Change to your desired color code */
+    color: #fff; /* Change text color to contrast with the background */
+    padding: 10px 0;
+    height: 100px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-top: 0;
+    margin-right: 0;
+    padding: 10px;
+}
+
+.logo {
+    margin-top: auto;
+}
+
+.logo-image{
+    height: 80px;
+    width: 80px;
+    padding: 0;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    color: black;
+    width: 100%;
+}
+
+.nav-links li {
+    margin-right: 25px;
+    font-size: 16px;
+}
+
+.nav-links a {
+    color: black; /* Change link color */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s; /* Add a smooth color transition on hover */
+}
+
+.nav-links a:hover {
+    color: rgb(239, 8, 69); /* Change the color on hover to a different color */
+}
+
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f39f5a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 16px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+.user-options a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px; /* Adjust the margin as needed */
+    display: inline;
+}
+
+.user-options a:hover{
+    color: rgb(239, 8, 69);
+}
+
+.divider {
+    color: black;
+    font-weight: bold;
+}
+
+.hellouser p{
+    color: black;
+    font-size: 18px;
+    margin-top: -35px;
+    font-weight: bold;
+}
+.recipes-heading{
+    color: white;
+    margin-left: 15px;
+}
+
+.filter{
+    margin-left: 20px;
+    margin-bottom:20px;
+    color: white;
+}
+
+/* Style for selected filters */
+.filter input[type="checkbox"]:checked + label::before {
+    background-color: purple;
+    color: white;
+}
+
+/* Style for unselected filters */
+.filter input[type="checkbox"] + label::before {
+    background-color: #012d01;
+    color: white;
+}
+
+/* Style for Apply Filters button when clicked */
+.applyfilterbutton{
+    margin-left:20px;
+    background-color: #F39F5A;
+    color: black;
+    border: 2px solid white;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+}
+.applyfilterbutton:active {
+    background-color: yellow;
+    color: black;
+    margin-left: 20px; /* Add left margin for spacing */
+}
+/* Style for unchecked checkboxes */
+input[type="checkbox"] {
+    background-color: white; /* Default background color */    
+}
+
+/* Style for checked checkboxes */
+input[type="checkbox"]:checked {
+    background-color: black; /* Background color when checked */
+}
+
+/* Additional CSS to style the labels and keep checkboxes in horizontal layout */
+label {
+    margin-right: 10px; /* Add some spacing between labels */
+}
+
+/* Hide the default checkbox appearance */
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #555; /* Add a border for better visibility */
+    width: 15px; /* Adjust the checkbox width */
+    height: 15px; /* Adjust the checkbox height */
+    border-radius: 3px; /* Add rounded corners for the checkboxes */
+    outline: none; /* Remove the default outline */
+}
+
+.recipe-card {
+    background: #ef6581;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    /* margin: 0 auto; This centers the container horizontally */
+    padding: 10px; /* Add padding for spacing inside the container */
+    border-radius: 20px;
+    color: black;
+}
+
+/* Recipe Card Styling */
+.recipe-card h2 {
+    font-size: 24px;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.recipe-card p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+.recipe-card strong {
+    font-weight: bold;
+}
+
+.view-recipe-button {
+    background-color: #451952;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.view-recipe-button:hover {
+    background-color: rgb(103, 5, 65);
+    border: 2px solid rgb(115, 3, 70);
+}
+
+.recipelogo {
+    width: 30px; /* Adjust the width to your preferred size */
+    height: 30px; /* Adjust the height to your preferred size */
+    margin-right: 8px; /* Add spacing between the logo and text */
+    vertical-align: middle; /* Align the logo vertically with text */
+}
+
+/* Pagination styling starts*/
+.pagination {
+    margin-top: 60px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.pagination-button {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: pink;
+    color: black;
+    border: 2px solid #451952;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px; /* Adjust the value to control the roundness of the edges */
+}
+
+.pagination-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.page-buttons {
+    display: inline-block;
+}
+
+.active {
+    background-color: pink;
+    border-color: pink;
+}
+
+/* Pagination ends*/
+
+.footer {
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+.contact-info {
+    float: left;
+    width: 50%;
+    margin-left: 200px;
+}
+.contact-info p {
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.message form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -200px;
+}
+.message form input{
+    width: 40%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the inputs */
+}
+.message form textarea{
+    height: 100px;
+    width: 40%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the inputs */
+}
+.message-button {
+    width: 80px;
+    text-align: center;
+    background-color: #662549;
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    border: 1px black solid;
+    
+}
+.links {
+    /* float: right; */
+    width: 50%;
+    text-align: left;
+    /* flex-direction: column; */
+    align-items: start;
+    margin-right: 50px;
+    margin-top: 20px; /* Adjust as needed */
+}
+.links a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px; /* Adjust as needed */
+    /* margin-bottom: 5px; */
+}
+.copyright {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

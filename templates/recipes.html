@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Healthy Recipes - RevitalizeMe</title>
+    <!-- Add your CSS stylesheets here -->
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recipestyle.css') }}">
+    <script>
+        const itemsPerPage = 20;
+        const totalRecipes = 1037;
+        const totalPages = Math.ceil(totalRecipes / itemsPerPage);
+    </script>
+</head>
+<body class = "recipes-page">
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <!--Navigation bar ends-->
+
+    <section class="recipes-hero">
+        <div class="container">
+            <!-- Content for the hero section if needed -->
+        </div>
+    </section>
+
+    <h1 class = "recipes-heading">Check out healthy recipes here!!</h1>
+    
+    <!-- Filter Section -->
+    <div class="filters">
+        <form action="{{ url_for('recipes') }}" method="GET">
+            <div class = "filter">
+                <label for="course-filter"><strong>Course:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <label><input type="checkbox" id="course-filter" name="course_filter" value="all"> All</label>
+                <label><input type="checkbox" id="course-filter" name="course_filter" value="breakfast"> Breakfast</label>
+                <label><input type="checkbox" id="course-filter" name="course_filter" value="lunch"> Lunch</label>
+                <label><input type="checkbox" id="course-filter" name="course_filter" value="dinner"> Dinner</label>
+                <label><input type="checkbox" id="course-filter" name="course_filter" value="appetizers"> Appetizers</label>
+                <label><input type="checkbox" id="course-filter" name="course_filter" value="snacks"> Snacks</label>
+                <label><input type="checkbox" id="course-filter" name="course_filter" value="sides"> Sides</label>
+                <label><input type="checkbox" id="course-filter" name="course_filter" value="desserts"> Desserts</label>
+            </div>
+            <div class = "filter">
+                <label for="dietary-filter"><strong>Dietary Preference:</strong></label>
+                <label><input type="checkbox" id="dietary-filter" name="dietary_filter" value="all"> All</label>
+                <label><input type="checkbox" id="dietary-filter" name="dietary_filter" value="vegetarian"> Vegetarian</label>
+                <label><input type="checkbox" id="dietary-filter" name="dietary_filter" value="vegan"> Vegan</label>
+                <label><input type="checkbox" id="dietary-filter" name="dietary_filter" value="gluten-free"> Gluten-Free</label>
+                <label><input type="checkbox" id="dietary-filter" name="dietary_filter" value="low-sodium"> Low-Sodium</label>
+                <label><input type="checkbox" id="dietary-filter" name="dietary_filter" value="low-carb"> Low-Carb</label>
+            <!-- Add more dietary preference options as needed -->
+            </div>
+            <button type="submit" class = "applyfilterbutton"><b>Apply Filter</b></button>
+        </form>
+    </div>    
+    
+    <div class="recipe-container">
+        {% for recipe in recipes %}
+        <!-- Apply filters here based on user selections -->
+        <div class="recipe-card">
+            <h2>{{ recipe['Recipe Name'] }}</h2>
+            <p><img src="{{ url_for('static', filename='images/prep_logo.png') }}" alt="Preparation Logo" class="recipelogo"><strong>Preparation Time:</strong>                {% if recipe['Prep Time'] == 0 %}
+                    --
+                {% else %}
+                    {{ recipe['Prep Time'] }} min
+                {% endif %}
+            </p>
+            <p><img src="{{ url_for('static', filename='images/cook_logo.png') }}" alt="Cooking Logo" class="recipelogo"><strong>Cook Time:</strong>
+                {% if recipe['Cook Time'] == 0 %}
+                --
+            {% else %}
+                {{ recipe['Cook Time'] }} min
+            {% endif %}
+            </p>
+            <p><img src="{{ url_for('static', filename='images/calories_logo.png') }}" alt="Calories Logo" class="recipelogo"><strong>Calories:</strong> {{ recipe['Calories'] }}</p>
+            <p><img src="{{ url_for('static', filename='images/servings_logo.png') }}" alt="Servings Logo" class="recipelogo"><strong>Servings:</strong> {{ recipe['Serving Size'] }}</p>
+            <a href="{{ url_for('view_recipe', recipe_id=recipe['recipe_id']) }}" class="view-recipe-button">View Recipe</a>
+        </div>
+        {% if loop.index % 20 == 0 %} <!-- Close the current container and open a new one every 20 cards -->
+    </div>
+    <!-- {% endif %} -->
+    <div class="recipe-container">
+        {% endfor %}
+    </div>
+    
+    <!-- <div class="pagination">
+        {% if current_set > 0 %}
+            <a href="{{ url_for('recipes', page=first_page_in_set - 1) }}" class="pagination-button">Previous</a>
+        {% endif %}
+        <div class="page-buttons">
+            {% for page_num in range(first_page_in_set, last_page_in_set + 1) %}
+                <a href="{{ url_for('recipes', page=page_num) }}" class="pagination-button{% if page_num == page %} active{% endif %}">{{ page_num }}</a>
+            {% endfor %}
+        </div>
+        {% if last_page_in_set < totalPages %}
+            <a href="{{ url_for('recipes', page=last_page_in_set + 1) }}" class="pagination-button">Next</a>
+        {% endif %}
+    </div> -->
+    <div class="pagination">
+        {% if current_set > 0 %}
+            <a href="{{ url_for('recipes', page=first_page_in_set - 1, dietary_filter=dietary_filter, course_filter=course_filter) }}" class="pagination-button">Previous</a>
+        {% endif %}
+        <div class="page-buttons">
+            {% for page_num in range(first_page_in_set, last_page_in_set + 1) %}
+                <a href="{{ url_for('recipes', page=page_num, dietary_filter=dietary_filter, course_filter=course_filter) }}" class="pagination-button{% if page_num == page %} active{% endif %}">{{ page_num }}</a>
+            {% endfor %}
+        </div>
+        {% if last_page_in_set < totalPages %}
+            <a href="{{ url_for('recipes', page=last_page_in_set + 1, dietary_filter=dietary_filter, course_filter=course_filter) }}" class="pagination-button">Next</a>
+        {% endif %}
+    </div>    
+<script>
+    document.getElementById('course-filter').value = "all";
+    document.getElementById('dietary-filter').value = "all";
+
+    document.getElementById('apply-filter').addEventListener('click', function (e) {
+    console.log('Apply Filter button clicked');
+    // Prevent the default button click behavior
+    e.preventDefault();
+
+    // Trigger the form submission
+    document.getElementById('filter-form').submit();
+});
+</script>
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>

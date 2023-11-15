@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer - RevitalizeMe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lifestylecss.css') }}">
+</head>
+<body class="lifestyle-body"> 
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <!--Navigation bar ends-->
+
+    <section class="cancer-hero">
+        <div class="container">
+        </div>
+    </section>
+
+    <div class="lifestyle-container">
+        <div class="cancer-title">
+            <h1>Cancer - Prevention, Risk Factors & Management</h1>
+        </div>
+    
+        <div class="cancer-navigation">
+            <a href="#intro">Introduction</a>
+            <span class="separator">|</span>
+            <a href="#types">Types</a>
+            <span class="separator">|</span>
+            <a href="#causes">Causes</a>
+            <span class="separator">|</span>
+            <a href="#symptoms">Symptoms and Signs</a>
+            <span class="separator">|</span>
+            <a href="#prevention">Prevention</a>
+            <!-- Add more article headings as needed -->
+        </div>  
+        
+        <div class = "cancer-introduction" id = "intro">
+            <h2>Introduction</h2>
+                <p>Cancer is a complex group of diseases characterized by the uncontrolled growth and spread of abnormal cells in the body. These abnormal cells, often referred to as cancer cells, can invade and destroy nearby healthy tissues and organs. They can also potentially spread to other parts of the body through the blood and lymphatic systems, a process known as metastasis.</p>
+                <p>Cancer can affect people of all ages and backgrounds and can occur in various parts of the body. There are many different types of cancer, each with its own unique characteristics and treatment options. The development of cancer is often attributed to genetic mutations, environmental factors, lifestyle choices, and a combination of these elements.</p>
+                <p>The understanding of cancer, its prevention, and treatment has advanced significantly over the years, leading to improved outcomes for many individuals diagnosed with the disease. Early detection, timely medical interventions, and ongoing research continue to play a crucial role in the fight against cancer.</p>    
+        </div>
+    
+        <div class="cancer-types" id="types">
+            <h2>Types of Cancer</h2>
+            <ul>
+                <li>
+                  <h3>Lung Cancer</h3>
+                  <p>Lung cancer is a malignant growth in the lungs, mainly linked to tobacco smoking and exposure to carcinogens. It's characterized by a persistent cough, chest pain, and difficulty breathing. Treatment options include surgery, chemotherapy, and radiation therapy.</p>
+                </li>
+                <li>
+                  <h3>Breast Cancer</h3>
+                  <p>Breast cancer primarily affects women but can occur in men. It originates in the breast tissue, often manifesting as a lump or changes in breast size. Early detection through regular mammograms and self-exams is key to successful treatment, which may involve surgery, radiation, and chemotherapy.</p>
+                </li>
+                <li>
+                  <h3>Prostate Cancer</h3>
+                  <p>Prostate cancer is exclusive to men and begins in the prostate gland. Early screening through digital rectal exams and PSA tests is crucial. Treatment approaches range from active surveillance to surgery and radiation therapy, depending on the stage and aggressiveness.</p>
+                </li>
+                <li>
+                  <h3>Colon Cancer</h3>
+                  <p>Colon cancer, also known as colorectal cancer, typically starts in the colon or rectum. Common symptoms include changes in bowel habits, blood in the stool, and abdominal pain. Early detection through colonoscopies is vital, and treatment options encompass surgery, chemotherapy, and targeted therapy.</p>
+                </li>
+                <li>
+                  <h3>Leukemia</h3>
+                  <p>Leukemia is a blood cancer marked by the overproduction of abnormal white blood cells in the bone marrow. It leads to symptoms such as fatigue, frequent infections, and easy bleeding or bruising. Treatment includes chemotherapy, targeted therapy, and stem cell transplantation.</p>
+                </li>
+                <li>
+                  <h3>Bladder Cancer</h3>
+                  <p>Bladder cancer originates in the lining of the bladder. It often presents with blood in the urine and increased urinary frequency. Depending on the stage, treatments may include surgery, immunotherapy, and chemotherapy.</p>
+                </li>
+                <li>
+                  <h3>Liver Cancer</h3>
+                  <p>Liver cancer begins in the liver and is often linked to chronic liver diseases such as cirrhosis and hepatitis B or C. Symptoms may include abdominal pain and weight loss. Treatment options vary, including surgery, liver transplant, and targeted drug therapy.</p>
+                </li>
+                <li>
+                  <h3>Stomach Cancer</h3>
+                  <p>Stomach cancer, or gastric cancer, starts in the stomach lining. It's associated with symptoms like indigestion, abdominal discomfort, and unexplained weight loss. Treatment typically involves surgery, chemotherapy, and radiation therapy.</p>
+                </li>
+                <li>
+                  <h3>Ovarian Cancer</h3>
+                  <p>Ovarian cancer is specific to women and begins in the ovaries. Early detection is challenging, but common symptoms include abdominal pain, bloating, and changes in urination. Treatment comprises surgery and chemotherapy.</p>
+                </li>
+                <li>
+                  <h3>Pancreatic Cancer</h3>
+                  <p>Pancreatic cancer originates in the pancreas, and it's often diagnosed at advanced stages. Symptoms include jaundice, abdominal pain, and unexplained weight loss. Treatment options include surgery, chemotherapy, and radiation therapy.</p>
+                </li>
+                <li>
+                  <h3>Thyroid Cancer</h3>
+                  <p>Thyroid cancer occurs in the thyroid gland, leading to symptoms like neck lumps and difficulty swallowing. The primary treatment is surgery to remove the thyroid or part of it, with potential follow-up radioactive iodine therapy.</p>
+                </li>
+                <li>
+                  <h3>Kidney Cancer</h3>
+                  <p>Kidney cancer starts in the kidneys and may not cause symptoms in its early stages. Later, it can result in blood in the urine, flank pain, and weight loss. Treatment involves surgery, targeted therapy, and immunotherapy.</p>
+                </li>
+                <li>
+                  <h3>Brain Cancer</h3>
+                  <p>Brain cancer can develop in various parts of the brain, leading to symptoms like headaches, seizures, and neurological deficits. Treatment options encompass surgery, radiation therapy, and chemotherapy, depending on the tumor's type and location.</p>
+                </li>
+                <li>
+                  <h3>Esophageal Cancer</h3>
+                  <p>Esophageal cancer affects the esophagus, typically causing difficulty swallowing, chest pain, and weight loss. Treatment options include surgery, chemotherapy, and radiation therapy, but the outlook can be challenging.</p>
+                </li>
+                <li>
+                  <h3>Endometrial Cancer</h3>
+                  <p>Endometrial cancer occurs in the lining of the uterus and can lead to symptoms like abnormal vaginal bleeding. Treatment often involves surgery, sometimes followed by radiation therapy or chemotherapy.</p>
+                </li>
+              </ul>
+        </div>
+    
+        <div class="cancer-causes" id="causes">
+            <h2>Causes of Cancer</h2>
+            <ul>
+                <li><b>Genetic Predisposition:</b> Inherited genetic mutations can increase the risk of developing cancer.</li>
+                <li><b>Lifestyle Choices:</b> Unhealthy habits such as smoking, poor diet, lack of exercise, and excessive alcohol consumption contribute to cancer risk.</li>
+                <li><b>Environmental Exposure:</b> Exposure to carcinogens like asbestos, UV radiation, and pollutants can lead to cancer.</li>
+                <li><b>Infections:</b> Certain infections, such as HPV and hepatitis, are associated with cancer development.</li>
+                <li><b>Age:</b> The likelihood of cancer increases with age due to accumulating genetic damage.</li>
+                <li><b>Hormonal Changes:</b> Hormonal imbalances, as in breast and prostate cancer, can be a factor.</li>
+                <li><b>Chronic Inflammation:</b> Conditions causing long-term inflammation may increase the risk of cancer.</li>
+                <li><b>Dietary Factors:</b> A diet high in processed foods and low in fruits and vegetables can contribute to cancer risk.</li>
+                <li><b>Obesity:</b> Excess body weight is linked to several cancer types.</li>
+                <li><b>Radiation Exposure:</b> Ionizing radiation from medical procedures or nuclear accidents is a known risk.</li>
+            </ul>
+            <h2>Risk Factors for Cancer</h2>
+            <ul>
+                <li><b>Complete Exposure:</b> Prolonged exposure to environmental toxins and pollutants increases cancer risk.</li>
+                <li><b>Obesity:</b> Excess body weight is a risk factor for various cancer types.</li>
+                <li><b>Environmental Exposure:</b> Living or working in areas with high levels of carcinogens can elevate cancer risk.</li>
+            </ul>
+        </div>
+    
+        <div class="cancer-symptoms" id="symptoms">
+            <h2>Symptoms and Signs of Various Cancers</h2>
+            <ul>
+                <li><b>Breast Cancer:</b> 
+                    <ul>
+                        <li>Lump in the breast</li>
+                        <li>Nipple discharge</li>
+                        <li>Changes in breast size or shape</li>
+                        <li>Skin changes</li>
+                    </ul>
+                </li>
+                <li><b>Lung Cancer:</b>
+                    <ul>
+                        <li>Chronic cough</li>
+                        <li>Coughing up blood</li>
+                        <li>Chest pain</li>
+                        <li>Shortness of breath</li>
+                    </ul>
+                </li>
+                <li><b>Colon Cancer:</b>
+                    <ul>
+                        <li>Changes in bowel habits</li>
+                        <li>Blood in the stool</li>
+                        <li>Abdominal pain</li>
+                        <li>Unexplained weight loss</li>
+                    </ul>
+                </li>
+                <li><b>Prostate Cancer:</b>
+                    <ul>
+                        <li>Difficulty urinating</li>
+                        <li>Frequent urination</li>
+                        <li>Blood in the urine or semen</li>
+                    </ul>
+                </li>
+                <li><b>Ovarian Cancer:</b>
+                    <ul>
+                        <li>Pelvic pain</li>
+                        <li>Bloating</li>
+                        <li>Abdominal discomfort</li>
+                        <li>Changes in bowel or bladder habits</li>
+                    </ul>
+                </li>
+                <li><b>Leukemia:</b>
+                    <ul>
+                        <li>Fatigue</li>
+                        <li>Frequent infections</li>
+                        <li>Bruising easily</li>
+                        <li>Unexplained weight loss</li>
+                    </ul>
+                </li>
+                <li><b>Pancreatic Cancer:</b>
+                    <ul>
+                        <li>Jaundice (yellowing of the skin and eyes)</li>
+                        <li>Abdominal pain</li>
+                        <li>Unintended weight loss</li>
+                    </ul>
+                </li>
+                <li><b>Skin Cancer:</b>
+                    <ul>
+                        <li>Changes in moles or skin growths</li>
+                        <li>Sores that don't heal</li>
+                        <li>New skin growths</li>
+                    </ul>
+                </li>
+                <li><b>Bladder Cancer:</b>
+                    <ul>
+                        <li>Blood in the urine</li>
+                        <li>Painful urination</li>
+                        <li>Frequent urination</li>
+                    </ul>
+                </li>
+                <li><b>Liver Cancer:</b>
+                    <ul>
+                        <li>Jaundice</li>
+                        <li>Abdominal pain</li>
+                        <li>Unexplained weight loss</li>
+                    </ul>
+                </li>
+                <li><b>Stomach Cancer:</b>
+                    <ul>
+                        <li>Abdominal pain</li>
+                        <li>Unintended weight loss</li>
+                        <li>Nausea and vomiting</li>
+                    </ul>
+                </li>
+                <li><b>Thyroid Cancer:</b>
+                    <ul>
+                        <li>Neck lump or swelling</li>
+                        <li>Hoarseness</li>
+                        <li>Difficulty swallowing</li>
+                    </ul>
+                </li>
+                <li><b>Kidney Cancer:</b>
+                    <ul>
+                        <li>Blood in the urine</li>
+                        <li>Abdominal pain or lump</li>
+                        <li>Unintended weight loss</li>
+                    </ul>
+                </li>
+                <li><b>Brain Cancer:</b>
+                    <ul>
+                        <li>Headaches</li>
+                        <li>Nausea and vomiting</li>
+                        <li>Changes in vision or speech</li>
+                    </ul>
+                </li>
+                <li><b>Esophageal Cancer:</b>
+                    <ul>
+                        <li>Difficulty swallowing</li>
+                        <li>Chest pain or discomfort</li>
+                        <li>Unintended weight loss</li>
+                    </ul>
+                </li>
+                <li><b>Endometrial Cancer:</b>
+                    <ul>
+                        <li>Abnormal vaginal bleeding</li>
+                        <li>Pelvic pain</li>
+                        <li>Pain during intercourse</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="cancer-prevention" id="prevention">
+            <h2>Prevention: Reducing Your Risk of Cancer</h2>
+            <ul>
+                <li><strong>Healthy Lifestyle:</strong> Adopt a healthy lifestyle that includes regular physical activity, a balanced diet, and maintaining a healthy weight. Engage in at least 150 minutes of moderate-intensity exercise or 75 minutes of vigorous-intensity exercise per week.</li>
+                <li><strong>Balanced Diet:</strong> Consume a diet rich in fruits, vegetables, whole grains, and lean proteins. Reduce your intake of sugary drinks and processed foods. Limit your consumption of red and processed meats. Aim to include a variety of colorful fruits and vegetables in your daily meals.</li>
+                <li><strong>Sun Protection:</strong> Protect your skin from harmful UV radiation. Use sunscreen with a broad spectrum (SPF 30 or higher), wear protective clothing, and seek shade during peak sun hours. Perform regular skin self-examinations to detect any unusual skin changes or growths.</li>
+                <li><strong>Regular Screenings:</strong> Follow recommended cancer screenings based on your age, gender, and family history. Screenings can help detect cancer at an early, more treatable stage. Common screenings include mammograms, Pap tests, colonoscopies, and prostate-specific antigen (PSA) tests.</li>
+                <li><strong>Vaccinations:</strong> Consider vaccinations that can prevent certain cancers. For example, HPV vaccines can protect against cervical, anal, and other cancers. Hepatitis B vaccination reduces the risk of liver cancer.</li>
+                <li><strong>Limit Alcohol:</strong> If you choose to consume alcohol, do so in moderation. For women, this means up to one drink per day, and for men, up to two drinks per day. Excessive alcohol consumption is a risk factor for liver, breast, mouth, and other cancers.</li>
+                <li><strong>Tobacco-Free:</strong> Quit smoking and avoid exposure to secondhand smoke. Smoking is a major cause of lung, mouth, throat, and other cancers. Seek support and resources to help you quit if you're a smoker.</li>
+                <li><strong>Occupational Safety:</strong> If your work involves exposure to carcinogens or toxins, follow recommended safety guidelines. Use protective equipment and practices to reduce exposure to workplace hazards associated with increased cancer risk.</li>
+                <li><strong>Environmental Awareness:</strong> Stay informed about potential environmental factors and toxins in your living and working environments that may increase cancer risk. Take necessary precautions to minimize exposure, such as reducing exposure to air pollutants or hazardous chemicals.</li>
+                <li><strong>Infectious Diseases:</strong> Protect against infections associated with cancer. Consider vaccination for hepatitis B and C to reduce the risk of liver cancer. Practice safe sex and get vaccinated against HPV to reduce the risk of cervical and other cancers.</li>
+            </ul>
+        </div>
+    
+        <div class="cancer-disclaimer">
+            <h2 style = "color: black;">Disclaimer:</h2>
+            <p>The information provided on this website is for informational purposes only and is not a substitute for professional medical advice. Always consult with a healthcare professional for specific medical advice and recommendations.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <!-- Your footer content goes here -->
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add smooth scrolling to all anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            for (const link of anchorLinks) {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+        
+                    const targetId = this.getAttribute("href").substring(1); // Remove the '#' character
+                    const targetElement = document.getElementById(targetId);
+        
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            }
+        });
+        </script>
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div> 
+</body>
+</html>

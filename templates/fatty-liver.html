@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lifestylecss.css') }}">
+    <title>Fatty Liver - RevitalizeMe</title>
+</head>
+<body class="lifestyle-body">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    
+    <section class="liver-hero">
+        <div class="container">
+            <!-- Add an image related to Fatty Liver here -->
+        </div>
+    </section>
+
+    <div class = "lifestyle-container">
+        <div class="liver-title">
+            <h1>Fatty Liver - Causes, Symptoms & Management</h1>
+        </div>
+    
+        <div class="liver-navigation">
+            <a href="#intro">Introduction</a>
+            <span class="separator">|</span>
+            <a href="#causes">Causes and Risk Factors</a>
+            <span class="separator">|</span>
+            <a href="#symptoms">Symptoms and Signs</a>
+            <span class="separator">|</span>
+            <a href="#prevention">Management and Prevention</a>
+            <!-- Add more article headings as needed -->
+        </div>   
+    
+        <div class="liver-content">
+            <div class="liver-introduction" id="intro">
+                <h2>Introduction</h2>
+                <p>
+                    Fatty liver, also known as hepatic steatosis, is a common condition characterized by the accumulation of excess fat in the liver. This buildup of fat can result from various factors, including poor diet, excessive alcohol consumption, obesity, and certain medical conditions.
+                </p>
+                <p>
+                    Fatty liver often doesn't cause noticeable symptoms in its early stages. It's usually discovered during routine medical check-ups or when investigating other health issues. If left unaddressed, fatty liver can lead to liver inflammation, scarring (fibrosis), and in some cases, cirrhosis.
+                </p>
+            </div>
+    
+            <div class="liver-types">
+                <h2>Two types of Fatty Liver:</h2>
+                <p>
+                    <b>Non-Alcoholic Fatty Liver Disease (NAFLD)</b>: This is the most common form of fatty liver and occurs in people who don't consume excessive alcohol. NAFLD often relates to obesity, insulin resistance, and metabolic syndrome. It can range from simple fat accumulation in the liver (steatosis) to more severe conditions like non-alcoholic steatohepatitis (NASH), which involves liver inflammation and damage.
+                </p>
+                <p>
+                    <b>Alcoholic Fatty Liver Disease (AFLD)</b>: As the name suggests, this condition is a result of excessive alcohol consumption. When you drink alcohol, your liver metabolizes it. However, heavy or prolonged alcohol use can lead to the accumulation of fat in liver cells, potentially progressing to more serious liver conditions like alcoholic hepatitis and cirrhosis.
+                </p>
+            </div>
+    
+    
+            <div class="liver-causes" id="causes">
+                <h2>Causes of Fatty Liver</h2>
+                <ul>
+                    <li>Excessive consumption of alcohol (in the case of Alcoholic Fatty Liver Disease).</li>
+                    <li>Poor dietary habits, especially a diet high in refined sugars and unhealthy fats.</li>
+                    <li>Obesity or being overweight, as excess fat can accumulate in the liver.</li>
+                    <li>Insulin resistance and metabolic syndrome, often linked to obesity.</li>
+                    <li>Rapid weight loss or crash diets, which can release stored fat into the liver.</li>
+                    <li>Viral hepatitis, such as hepatitis C, which can affect the liver.</li>
+                    <li>Medications, such as corticosteroids or certain cancer drugs.</li>
+                </ul>
+    
+                <h2>Risk Factors for Fatty Liver</h2>
+                <ul>
+                    <li>Obesity or being overweight, especially if fat is concentrated around the abdomen.</li>
+                    <li>Type 2 diabetes or insulin resistance.</li>
+                    <li>High levels of triglycerides in the blood.</li>
+                    <li>Poor eating habits, including a diet high in processed and sugary foods.</li>
+                    <li>Physical inactivity and a sedentary lifestyle.</li>
+                    <li>Family history of liver disease.</li>
+                    <li>Certain medical conditions like metabolic syndrome.</li>
+                </ul>
+            </div>
+            
+    
+            <div class="liver-symptoms" id="symptoms">
+                <h2>Symptoms and Signs</h2>
+                <p style = "color: black;">
+                    Fatty Liver is often a silent condition, and many people with this condition may not experience noticeable symptoms. However, some common symptoms and signs may include:
+                </p>
+                <ul>
+                    <li>Fatigue</li>
+                    <li>Unexplained weight loss</li>
+                    <li>Pain or discomfort in the upper right abdomen</li>
+                    <li>Enlarged liver</li>
+                    <li>Weakness</li>
+                    <li>Jaundice (yellowing of the skin and eyes)</li>
+                </ul>
+            </div>
+    
+            <div class="liver-prevention" id="prevention">
+                <h2>Management and Prevention</h2>
+                <p style = "color: black;">
+                    Managing and preventing Fatty Liver often involves lifestyle changes and dietary modifications. Here are some strategies for management and prevention:
+                </p>
+                <ul>
+                    <li>Weight management and gradual weight loss</li>
+                    <li>Healthy, balanced diet with reduced sugar and saturated fats</li>
+                    <li>Regular exercise and physical activity</li>
+                    <li>Limited alcohol consumption or abstinence</li>
+                    <li>Control of diabetes and blood sugar levels</li>
+                    <li>Medications as prescribed by a healthcare professional</li>
+                </ul>
+            </div>
+            
+            <div class="liver-disclaimer">
+                <h2 style = "color: black;">Disclaimer:</h2>
+                <p>
+                    The information provided on this website is for informational purposes only and is not a substitute for professional medical advice. Always consult with a healthcare professional for specific medical advice and recommendations.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rest of your content here -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add smooth scrolling to all anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            for (const link of anchorLinks) {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+        
+                    const targetId = this.getAttribute("href").substring(1); // Remove the '#' character
+                    const targetElement = document.getElementById(targetId);
+        
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            }
+        });
+        </script>
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>

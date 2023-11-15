@@ -1,0 +1,1616 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #451952;
+}
+
+header {
+    background-color: #f39f5a; /*Change to your desired color code */
+    color: #fff; /* Change text color to contrast with the background */
+    padding: 10px 0;
+    height: 100px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-top: 0;
+    margin-right: 0;
+    padding: 10px;
+}
+
+.logo {
+    margin-top: auto;
+}
+
+.logo-image{
+    height: 80px;
+    width: 80px;
+    padding: 0;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    color: black;
+    width: 100%;
+}
+
+.nav-links li {
+    margin-right: 25px;
+    font-size: 16px;
+}
+
+.nav-links a {
+    color: black; /* Change link color */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s; /* Add a smooth color transition on hover */
+}
+
+.nav-links a:hover {
+    color: rgb(239, 8, 69); /* Change the color on hover to a different color */
+}
+
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f39f5a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 16px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+.user-options a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px; /* Adjust the margin as needed */
+    display: inline;
+}
+
+.user-options a:hover{
+    color: rgb(239, 8, 69);
+}
+
+.divider {
+    color: black;
+    font-weight: bold;
+}
+
+.hellouser p{
+    color: black;
+    font-size: 18px;
+    margin-top: -35px;
+    font-weight: bold;
+}
+
+.lifestyle-body{
+    background-color: #451952;
+}
+
+.diabetes-hero {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    background: url('/static/images/diabetes.jpg') no-repeat center center;
+    background-size: 100% 100%; /* Adjust this property to control the image size */
+    color: #fff; /* Set the text color */
+    text-align: center;
+    padding-top: 100px; /* Adjust as needed for vertical alignment */
+}
+
+.diabetes-title {
+    text-align: center;
+    padding: 10px 0;
+    color: black;
+}
+
+.diabetes-title h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+/* Style for the diabetes-navigation */
+.diabetes-navigation {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+/* Style for the separator (the "|" symbol) */
+.diabetes-navigation .separator {
+    margin: 0 10px;
+    color: black; /* Change the color as needed */
+}
+
+/* Style for the links in the navigation */
+.diabetes-navigation a {
+    text-decoration: none;
+    color: black; /* Change the color as needed */
+    font-weight: bold;
+}
+
+/* Style for the links on hover (optional) */
+.diabetes-navigation a:hover {
+    color: #555; /* Change the hover color as needed */
+}
+
+/* Style for the diabetes-introduction class */
+.diabetes-introduction {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.diabetes-introduction h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.diabetes-introduction p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.diabetes-causes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.diabetes-causes h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.diabetes-causes p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.diabetes-causes ul{
+    margin-left: 25px;
+}
+
+.diabetes-causes li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.diabetes-prediabetes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.diabetes-prediabetes h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.diabetes-prediabetes p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.diabetes-symptoms{
+    margin-top: -30px;
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.diabetes-symptoms ul{
+    margin-left: 25px;
+}
+
+.diabetes-symptoms li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.diabetes-prevention {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: -35px;
+} 
+
+.diabetes-prevention h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 25px;
+    margin-top: -10px;
+}
+
+.diabetes-prevention h3 {
+    font-size: 20px;
+    color: black; /* Change the color as needed */
+    margin-left: 15px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.diabetes-prevention ul{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.diabetes-prevention li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.diabetes-disclaimer {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    color: black;
+} 
+
+.diabetes-disclaimer h3 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.diabetes-disclaimer p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.diabetes-references {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+} 
+
+.diabetes-references h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.diabetes-references p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.diabetes-references ul{
+    margin-left: 25px;
+    color: black;
+}
+
+.diabetes-references a{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+/*Diabetes ends*/
+
+/*bp starts*/
+.bp-hero {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    background: url('/static/images/bp.jpg') no-repeat center center;
+    background-size: 100% 100%; /* Adjust this property to control the image size */
+    color: #fff; /* Set the text color */
+    text-align: center;
+    padding-top: 100px; /* Adjust as needed for vertical alignment */
+}
+
+.bp-title {
+    text-align: center;
+    padding: 10px 0;
+    color: black; }
+
+.bp-title h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+/* Style for the diabetes-navigation */
+.bp-navigation {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+/* Style for the separator (the "|" symbol) */
+.bp-navigation .separator {
+    margin: 0 10px;
+    color: black; }
+
+/* Style for the links in the navigation */
+.bp-navigation a {
+    text-decoration: none;
+    color: black;    
+    font-weight: bold;
+}
+
+/* Style for the links on hover (optional) */
+.bp-navigation a:hover {
+    color: #555; /* Change the hover color as needed */
+}
+
+.bp-introduction {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.bp-introduction h2 {
+    font-size: 24px;
+    color: black;     
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.bp-introduction p {
+    font-size: 16px;
+    color: black; }
+
+.bp-causes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.bp-causes h2 {
+    font-size: 24px;
+    color: black;     
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.bp-causes h3 {
+    font-size: 20px;
+    color: black;     
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.bp-causes p {
+    font-size: 16px;
+    color: black; } 
+
+.bp-causes ul{
+    margin-left: 25px;
+}
+
+.bp-causes li{
+    font-size: 16px;
+    color: black;     list-style-type: square;
+}
+
+.bp-symptoms{
+    margin-top: -30px;
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.bp-symptoms ul{
+    margin-left: 25px;
+}
+
+.bp-symptoms li{
+    font-size: 16px;
+    color: black;     
+    list-style-type: square;
+}
+
+.bp-prevention {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: -35px;
+} 
+
+.bp-prevention h2 {
+    font-size: 24px;
+    color: black; 
+    margin-bottom: 25px;
+    margin-top: -10px;
+}
+
+.bp-prevention ul{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.bp-prevention li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+/* Style for the p element inside diabetes-introduction */
+
+.bp-disclaimer {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+} 
+
+.bp-disclaimer h3 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.bp-disclaimer p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.bp-references {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+} 
+
+.bp-references h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.bp-references p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.bp-references ul{
+    margin-left: 25px;
+}
+
+.bp-references li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+/*bp ends*/
+
+/*Cancer starts*/
+
+.cancer-hero {
+    width: 100%;
+    height: 250px; /* Adjust the height as needed */
+    background: url('/static/images/cancer.jpg') no-repeat center center;
+    background-size: 100% 100%; /* Adjust this property to control the image size */
+    color: #fff; /* Set the text color */
+    text-align: center;
+    padding-top: 100px; /* Adjust as needed for vertical alignment */
+}
+
+.cancer-title {
+    text-align: center;
+    padding: 10px 0;
+    color: black;
+}
+
+.cancer-title h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.cancer-navigation {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+
+}
+
+/* Style for the separator (the "|" symbol) */
+.cancer-navigation .separator {
+    margin: 0 10px;
+    color: black; /* Change the color as needed */
+}
+
+/* Style for the links in the navigation */
+.cancer-navigation a {
+    text-decoration: none;
+    color: black; /* Change the color as needed */
+    font-weight: bold;
+}
+
+/* Style for the links on hover (optional) */
+.cancer-navigation a:hover {
+    color: #555; /* Change the hover color as needed */
+}
+
+.cancer-introduction {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.cancer-introduction h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.cancer-introduction p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.cancer-types {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.cancer-types h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.cancer-types h3 {
+    font-size: 20px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.cancer-types p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.cancer-types ul{
+    margin-left: 25px;
+}
+
+.cancer-types li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+
+.cancer-causes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.cancer-causes h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.cancer-causes ul{
+    margin-left: 25px;
+}
+
+.cancer-causes li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.cancer-symptoms {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.cancer-symptoms h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.cancer-symptoms ul{
+    margin-left: 25px;
+}
+
+.cancer-symptoms li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.cancer-prevention {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.cancer-prevention h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.cancer-prevention ul{
+    margin-left: 25px;
+}
+
+.cancer-prevention li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.cancer-disclaimer {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+} 
+
+.cancer-disclaimer h3 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.cancer-disclaimer p {
+    font-size: 16px;
+    color: black; 
+} 
+/*cancer ends*/
+/*pcod starts*/
+.pcod-hero {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    background: url('/static/images/pcod.jpg') no-repeat center center;
+    background-size: 100% 100%; /* Adjust this property to control the image size */
+    color: #fff; /* Set the text color */
+    text-align: center;
+    padding-top: 100px; /* Adjust as needed for vertical alignment */
+}
+
+.pcod-title {
+    text-align: center;
+    padding: 10px 0;
+    color: black;
+}
+
+.pcod-title h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.pcod-navigation {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+/* Style for the separator (the "|" symbol) */
+.pcod-navigation .separator {
+    margin: 0 10px;
+    color: black; /* Change the color as needed */
+}
+
+/* Style for the links in the navigation */
+.pcod-navigation a {
+    text-decoration: none;
+    color: black; /* Change the color as needed */
+    font-weight: bold;
+}
+
+/* Style for the links on hover (optional) */
+.pcod-navigation a:hover {
+    color: #555; /* Change the hover color as needed */
+}
+
+.pcod-introduction {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.pcod-introduction h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.pcod-introduction p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.pcod-causes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.pcod-causes h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.pcod-causes ul{
+    margin-left: 25px;
+}
+
+.pcod-causes li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.pcod-symptoms {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.pcod-symptoms h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.pcod-symptoms ul{
+    margin-left: 25px;
+}
+
+.pcod-symptoms li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.pcod-prevention {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: -35px;
+} 
+
+.pcod-prevention h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 25px;
+    margin-top: -10px;
+}
+
+.pcod-prevention h3 {
+    font-size: 20px;
+    color: black; /* Change the color as needed */
+    margin-left: 15px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.pcod-prevention ul{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.pcod-prevention li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.pcod-disclaimer p {
+    font-size: 16px;
+    color: black; 
+} 
+/*pcod ends*/
+
+/*thyroid starts*/
+.thyroid-hero {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    background: url('/static/images/thyroid.jpg') no-repeat center center;
+    background-size: 100% 100%; /* Adjust this property to control the image size */
+    color: #fff; /* Set the text color */
+    text-align: center;
+    padding-top: 100px; /* Adjust as needed for vertical alignment */
+}
+
+.thyroid-title {
+    text-align: center;
+    padding: 10px 0;
+    color: black;
+}
+
+.thyroid-title h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.thyroid-navigation {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+
+}
+
+/* Style for the separator (the "|" symbol) */
+.thyroid-navigation .separator {
+    margin: 0 10px;
+    color: black; /* Change the color as needed */
+}
+
+/* Style for the links in the navigation */
+.thyroid-navigation a {
+    text-decoration: none;
+    color:  black; /* Change the color as needed */
+    font-weight: bold;
+}
+
+/* Style for the links on hover (optional) */
+.thyroid-navigation a:hover {
+    color: #555; /* Change the hover color as needed */
+}
+
+.thyroid-introduction {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.thyroid-introduction h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.thyroid-introduction p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.thyroid-types {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.thyroid-types h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.thyroid-types p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.thyroid-causes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.thyroid-causes h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.thyroid-causes ul{
+    margin-left: 25px;
+}
+
+.thyroid-causes li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.thyroid-symptoms {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.thyroid-symptoms h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.thyroid-symptoms ul{
+    margin-left: 25px;
+}
+
+.thyroid-symptoms li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+
+.thyroid-prevention {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: -35px;
+} 
+
+.thyroid-prevention h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 25px;
+    margin-top: -10px;
+}
+
+.thyroid-prevention h3 {
+    font-size: 20px;
+    color: black; /* Change the color as needed */
+    margin-left: 15px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.thyroid-prevention ul{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.thyroid-prevention li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.thyroid-disclaimer p {
+    font-size: 16px;
+    color: black; 
+}
+/*thyroid ends*/
+
+/*heart attack begins*/
+.heart-hero {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    background: url('/static/images/heart.jpg') no-repeat center center;
+    background-size: 100% 100%; /* Adjust this property to control the image size */
+    color: #fff; /* Set the text color */
+    text-align: center;
+    padding-top: 100px; /* Adjust as needed for vertical alignment */
+}
+
+.heart-title {
+    text-align: center;
+    padding: 10px 0;
+    color: black;
+}
+
+.heart-title h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.heart-navigation {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+/* Style for the separator (the "|" symbol) */
+.heart-navigation .separator {
+    margin: 0 10px;
+    color: black; /* Change the color as needed */
+}
+
+.heart-navigation a {
+    text-decoration: none;
+    color: black; /* Change the color as needed */
+    font-weight: bold;
+}
+
+/* Style for the links on hover (optional) */
+.heart-navigation a:hover {
+    color: #555; /* Change the hover color as needed */
+}
+
+.heart-introduction {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.heart-introduction h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.heart-introduction p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+.heart-causes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.heart-causes h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.heart-causes ul{
+    margin-left: 25px;
+}
+
+.heart-causes li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.heart-symptoms {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.heart-symptoms h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.heart-symptoms ul{
+    margin-left: 25px;
+}
+
+.heart-symptoms li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.heart-prevention {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: -35px;
+} 
+
+.heart-prevention h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 25px;
+    margin-top: -10px;
+}
+
+.heart-prevention h3 {
+    font-size: 20px;
+    color: black; /* Change the color as needed */
+    margin-left: 15px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.heart-prevention ul{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.heart-prevention li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.heart-disclaimer p {
+    font-size: 16px;
+    color: black; 
+} 
+/*heart attack ends*/
+
+/* Fatty Liver starts*/
+.liver-hero {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    background: url('/static/images/liver.jpg') no-repeat center center;
+    background-size: 100% 100%; /* Adjust this property to control the image size */
+    color: #fff; /* Set the text color */
+    text-align: center;
+    padding-top: 100px; /* Adjust as needed for vertical alignment */
+}
+
+.liver-title {
+    text-align: center;
+    padding: 10px 0;
+    color: black;
+}
+
+.liver-title h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.liver-navigation {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.liver-navigation .separator {
+    margin: 0 10px;
+    color: black; /* Change the color as needed */
+}
+
+.liver-navigation a {
+    text-decoration: none;
+    color: black; /* Change the color as needed */
+    font-weight: bold;
+}
+
+.liver-navigation a:hover {
+    color: #555; /* Change the hover color as needed */
+}
+
+.liver-introduction {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.liver-introduction h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.liver-introduction p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.liver-types {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.liver-types h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.liver-types p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.liver-causes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.liver-causes h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.liver-causes ul{
+    margin-left: 25px;
+}
+
+.liver-causes li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.liver-symptoms {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Style for the h2 element inside diabetes-introduction */
+.liver-symptoms h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.liver-symptoms ul{
+    margin-left: 25px;
+}
+
+.liver-symptoms li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.liver-prevention {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: -35px;
+} 
+
+.liver-prevention h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 25px;
+    margin-top: -10px;
+}
+
+.liver-prevention ul{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.liver-prevention li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.liver-disclaimer p {
+    font-size: 16px;
+    color: black; 
+} 
+/*liver ends*/
+
+.lifestyle-hero {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    background: url('/static/images/lifestyle.jpg') no-repeat center center;
+    background-size: 100% 100%; /* Adjust this property to control the image size */
+    color: #fff; /* Set the text color */
+    text-align: center;
+    padding-top: 100px; /* Adjust as needed for vertical alignment */
+}
+
+.lifestyle-title {
+    text-align: center;
+    padding: 10px 0;
+    color: black;
+}
+
+.lifestyle-title h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.lifestyle-navigation {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+
+}
+
+.lifestyle-navigation .separator {
+    margin: 0 10px;
+    color: black; /* Change the color as needed */
+}
+
+.lifestyle-navigation a {
+    text-decoration: none;
+    color: black; /* Change the color as needed */
+    font-weight: bold;
+}
+
+.lifestyle-navigation a:hover {
+    color: #555; /* Change the hover color as needed */
+}
+
+.lifestyle-introduction {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.lifestyle-introduction h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+/* Style for the p element inside diabetes-introduction */
+.lifestyle-introduction p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.lifestyle-types {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: -35px;
+} 
+
+.lifestyle-types h2 {
+    font-size: 22px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 25px;
+    margin-top: -10px;
+}
+
+.lifestyle-types h3 {
+    font-size: 20px;
+    color: black; /* Change the color as needed */
+    /* margin-left: 5px; */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.lifestyle-types p {
+    font-size: 16px;
+    color: black; /* Change the color as needed */
+}
+
+.lifestyle-causes {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.lifestyle-causes h1 {
+    font-size: 24px;
+    /* font-weight: bold; */
+}
+.lifestyle-causes h2 {
+    font-size: 18px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.lifestyle-causes p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.lifestyle-causes ul{
+    margin-left: 25px;
+}
+
+.lifestyle-causes li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.lifestyle-prevention {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.lifestyle-prevention h2 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.lifestyle-prevention p {
+    font-size: 16px;
+    color: black; 
+} 
+
+.lifestyle-prevention ul{
+    margin-left: 25px;
+}
+
+.lifestyle-prevention li{
+    font-size: 16px;
+    color: black; 
+    list-style-type: square;
+}
+
+.lifestyle-disclaimer {
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.5;
+} 
+
+.lifestyle-disclaimer h3 {
+    font-size: 24px;
+    color: black; /* Change the color as needed */
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.lifestyle-disclaimer p {
+    font-size: 16px;
+    color: black; 
+} 
+/*lifestyle ends*/
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+.contact-info {
+    float: left;
+    width: 50%;
+    margin-left: 200px;
+}
+.contact-info p {
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.message form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -200px;
+}
+.message form input{
+    width: 40%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the inputs */
+}
+.message form textarea{
+    height: 100px;
+    width: 40%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the inputs */
+}
+.message-button {
+    width: 80px;
+    text-align: center;
+    background-color: #662549;
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    border: 1px black solid;
+    
+}
+.links {
+    /* float: right; */
+    width: 50%;
+    text-align: left;
+    /* flex-direction: column; */
+    align-items: start;
+    margin-right: 50px;
+    margin-top: 20px; /* Adjust as needed */
+}
+.links a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px; /* Adjust as needed */
+    /* margin-bottom: 5px; */
+}
+.copyright {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.lifestyle-container{
+    background-color: #EFE1D1;
+    padding: 20px;
+    margin-top: 40px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    color: black;
+}

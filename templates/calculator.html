@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMR and Macronutrient Calculator - RevitalizeMe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calcstyle.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <!--Navigation bar ends-->
+
+    <!-- Calculator Section -->
+    <section class="calculator-page">
+        <h1 class="calculator-heading">BMR and Macronutrient Calculator</h1>
+        <p class = "calculator-para">Empower yourself with the knowledge needed to make informed dietary choices. Take the guesswork out of nutrition planning and embark on a healthier, more balanced lifestyle with our Macronutrients & BMR Calculator.</p>
+        <h3>Why BMR?</h3>
+        <p class = "calculator-para"> Your basal metabolic rate (BMR) is equivalent to the amount of energy (in the form of calories) that your body needs to function if it were to rest for 24 hours.
+        </p>
+        <h3>Why Macronutrient distribution is important to achieve fitness goals?</h3>
+        <p class = "calculator-para">Adhering to a recommended distribution of macronutrients is essential for achieving fitness goals as it ensures a balanced and strategic approach to fueling the body. Carbohydrates, proteins, and fats each play distinct roles in supporting various aspects of fitness and overall health. Carbohydrates provide the primary energy source, sustaining performance during workouts and daily activities. Proteins are crucial for muscle growth, repair, and maintenance, aiding in recovery and preserving lean muscle mass. A well-balanced macronutrient intake supports efficient metabolism, contributing to weight management and calorie utilization. Hormonal balance, particularly influenced by adequate fat intake, plays a key role in regulating metabolism, energy utilization, and muscle synthesis—all critical factors for fitness success. Additionally, the diverse array of essential nutrients offered by each macronutrient enhances overall nutrient intake, promoting holistic well-being on the fitness journey.
+        </p>
+
+        <!-- Calculator Form -->
+        <div class="calculator-form">
+            <form id="calculator-form">
+                <div id="error-message" style="color: red;"></div>
+
+                <div class="form-group">
+                    <label for="age">Age (years):</label>
+                    <input type="number" id="age" name="age" placeholder = "Enter your age" required min="1" max="150">
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" name="weight" placeholder = "Enter your weight" required min="20" max="500">
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" name="height" placeholder = "Enter your height" required min="50" max="300">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected hidden>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="activity-level">Activity Level:</label>
+                    <select id="activity-level" name="activity-level" required>
+                        <option value="" disabled selected hidden>Select your activity level</option>
+                        <option value="sedentary">Sedentary - Minimal physical activity</option>
+                        <option value="lightly-active">Lightly Active - exercise 1-3 days a week</option>
+                        <option value="moderately-active">Moderately Active - exercise 3-5 days a week</option>
+                        <option value="very-active">Very Active - exercise 6-7 days a week</option>
+                        <option value="extra-active">Extra Active - highly strenuous physical job</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fitness-goal">Fitness Goal:</label>
+                    <select id="fitness-goal" name="fitness-goal" required>
+                        <option value="" disabled selected hidden>Select a Fitness Goal</option>
+                        <option value="weight-loss">Weight Loss</option>
+                        <option value="muscle-gain">Muscle Gain</option>
+                        <option value="weight-gain">Weight Gain</option>
+                        <option value="general-fitness">General Fitness</option>
+                        <option value="fat-loss">Fat Loss</option>
+                    </select>
+                </div>
+                <button type="button" id="calculate-button">Calculate</button>
+            </form>
+        </div>
+
+           <!-- Calculator Results -->
+        {% if 'user_id' in session %}
+        <div class="calculator-results">
+            <h2>Calculator Results</h2>
+            <p><strong>Body Mass Index (BMI): </strong><span id="bmi-result">0</span></p>
+            <p><strong>Basal Metabolic Rate (BMR): </strong><span id="bmr-result">0</span> calories per day.</p>
+            <p><strong>Daily Calorie Requirements: </strong> <span id="calorie-needs-result">0</span> calories per day.</p>
+            <h3>Recommended Macronutrient Distribution:</h3>
+            <p><strong>Protein: </strong> <span id="protein-result">0</span></p>
+            <p><strong>Carbohydrates: </strong><span id="carbs-result">0</span></p>
+            <p><strong>Fats: </strong><span id="fats-result">0</span></p>
+        </div>
+        {% else %}
+        <div class="calculator-results">
+            <p>Log in to get the results or sign up for a new account.</p>
+        </div>
+        {% endif %}
+    </section>
+
+    <h2 class = "faq" style = "color: #f39f5a">FAQs</h2>
+
+    <!-- FAQ items after calculator results -->
+    <div class="faq-item" onclick="toggleDropdown('faq-item-1')">
+        <h2 class="faq-question">How to Increase BMR?</h2>
+        <div id="faq-item-1" class="content" onclick="event.stopPropagation()">
+            <ul>
+                <li><strong>Eating More Protein in Every Meal:</strong> Protein is an essential macronutrient that plays a crucial role in various physiological functions. It is particularly important for muscle repair, growth, and maintenance. When you consume more protein, it helps in the synthesis of new muscle proteins, which can contribute to an increase in lean muscle mass. Since muscle tissue burns more calories than fat tissue, having a higher proportion of muscle can potentially boost your metabolism, aiding in weight management.</li>
+
+                <li><strong>Doing More HIIT (High-Intensity Interval Training) Workouts:</strong> HIIT involves short bursts of intense exercise followed by periods of rest or lower-intensity activity. This type of workout has been shown to increase the afterburn effect, scientifically known as excess post-exercise oxygen consumption (EPOC). EPOC refers to the additional calories your body continues to burn after the workout is completed. The intense nature of HIIT can lead to an increased metabolic rate, helping you burn more calories during and after the exercise session.</li>
+
+                <li><strong>Increasing Your Daily Activity - Choosing Stairs, Walking More, Using a Standing Desk:</strong> Non-exercise activity thermogenesis (NEAT) refers to the calories your body burns during activities that are not formal exercise. Choosing stairs, walking more, and using a standing desk increase your NEAT. These activities may seem small, but they can have a cumulative effect on the calories burned throughout the day. Additionally, standing and walking engage more muscles than sitting, contributing to overall energy expenditure.</li>
+
+                <li><strong>Eating More Spicy Foods:</strong> Spicy foods often contain compounds like capsaicin, which can temporarily boost metabolism. Capsaicin has been shown to increase the body's heat production, leading to a slight increase in calorie expenditure. While the effect may not be massive, regularly incorporating spicy foods into your diet may contribute to a modest increase in overall calorie burning.</li>
+
+                <li><strong>Doing More Resistance Workouts - Muscles Burn More Calories Than Fat Tissue:</strong> Muscle tissue is metabolically active, meaning it requires energy (calories) to function even at rest. When you engage in resistance workouts and build muscle mass, your body's overall calorie expenditure increases because maintaining and repairing muscle tissue demands energy. In contrast, fat tissue is less metabolically active. Therefore, having a higher proportion of lean muscle mass can contribute to a higher resting metabolic rate, supporting weight management efforts.</li>
+            </ul>
+            <p>It's important to note that individual responses to these strategies may vary, and a holistic approach to diet and exercise is often most effective for achieving and maintaining overall health and fitness goals. Consulting with a healthcare or fitness professional is advisable before making significant changes to your diet or exercise routine.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="faq-item" onclick="toggleDropdown('faq-item-2')">
+        <h2 class="faq-question">How to boost your overall metabolism?</h2>
+        <div id="faq-item-2" class="content" onclick="event.stopPropagation()">
+            <p>Supporting your metabolism is key to maintaining a healthy lifestyle, as it is responsible for converting nutrients into the energy your body needs for essential functions. Factors such as age, diet, physical activity, and health status can influence your metabolic rate.</p>
+            <ul>
+                <li><strong>Eat Plenty of Protein at Every Meal:</strong>
+                    Eating protein-rich foods temporarily increases your metabolism due to the thermic effect of food (TEF). Protein requires more energy for digestion compared to carbohydrates and fats. Additionally, a higher protein intake can help prevent muscle loss during weight loss, supporting your metabolism.</li>
+
+                <li><strong>Do a High-Intensity Workout:</strong>
+                    High-intensity interval training (HIIT) involves intense bursts of activity, effectively boosting your metabolism. This type of exercise helps burn fat and build muscle, contributing to an increased metabolic rate, especially when compared to other exercise types.</li>
+
+                <li><strong>Lift Heavy Things:</strong>
+                    Building muscle through weightlifting increases your metabolism, as muscle is more metabolically active than fat. Lifting weights not only helps you burn more calories at rest but also prevents muscle loss during weight loss, maintaining a higher metabolism.</li>
+
+                <li><strong>Stand Up More:</strong>
+                    Prolonged sitting can negatively impact your metabolism and health. Standing or incorporating short walks throughout the day can mitigate these effects, improving cardiometabolic health and reducing the risk of weight gain.</li>
+
+                <li><strong>Drink Green Tea or Oolong Tea:</strong>
+                    Green tea and oolong tea contain compounds that may increase fat burning, contributing to a higher metabolism. The teas may also influence the gut microbiome, improving the breakdown of fats for energy.</li>
+
+                <li><strong>Eat Spicy Foods:</strong>
+                    Spices like peppers, containing capsaicin, can boost metabolism. While the effect may be modest, incorporating spicy foods into your diet, combined with other strategies, may contribute to maintaining a moderate weight.</li>
+
+                <li><strong>Get a Good Night’s Sleep:</strong>
+                    Lack of sleep is linked to obesity and can disrupt appetite-regulating hormones. Quality sleep is crucial for maintaining a healthy metabolism and supporting weight management.</li>
+
+                <li><strong>Drink Coffee:</strong>
+                    Caffeine in coffee triggers the release of neurotransmitters that regulate fat processing, leading to increased metabolism. While the effectiveness may vary, coffee consumption can contribute to weight loss, especially when combined with a healthy lifestyle.</li>
+            </ul>
+            <p>In summary, incorporating these strategies into your daily routine can enhance your metabolism, support weight management, and contribute to overall health. Whether through dietary choices, exercise, or lifestyle adjustments, these evidence-based methods provide effective ways to boost your metabolism.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="faq-item" onclick="toggleDropdown('faq-item-3')">
+        <h2 class="faq-question">Why is it necessary to follow recommended macronutrient distribution?</h2>
+        <div id="faq-item-3" class="content" onclick="event.stopPropagation()">
+            <p>Carbohydrates serve as the preferred source of energy for numerous body tissues, with the brain relying primarily on them. The body has the capacity to break down carbohydrates into glucose, facilitating its movement from the bloodstream into cells, thereby enabling their proper functioning. Crucially, even during periods of rest, carbohydrates play a pivotal role in sustaining essential bodily functions such as regulating body temperature, supporting cardiac activity, and facilitating the digestion of food.</p>
+            <p>Protein comprises extended chains of compounds known as amino acids, fulfilling a fundamental role in the growth, development, repair, and maintenance of body tissues. Distributed throughout every cell in the body, protein intake is crucial for the overall health of muscles, bones, and tissues. Beyond structural support, protein is integral to various physiological processes, including immune system function, participation in biochemical reactions, and providing the framework for cellular structure and support.        </p>
+            <p>Fats constitute a significant component of the diet, serving as an additional source of energy for the body. While the health implications of different types of dietary fats may vary, they are indispensable for hormone production, cellular growth, energy storage, and the absorption of crucial vitamins. Despite variations in their health impact, fats play an essential role in supporting various physiological functions and should be included as part of a well-balanced diet.</p>
+            <ul>
+                <li><strong>Energy Source:</strong> Each macronutrient (carbohydrates, proteins, and fats) provides a distinct source of energy for the body. A balanced distribution ensures a comprehensive and sustained supply of energy to support various bodily functions.</li>
+            
+                <li><strong>Nutrient Diversity:</strong> Different macronutrients offer diverse nutritional benefits. Carbohydrates provide quick energy, proteins support tissue repair and growth, and fats contribute to hormone production and nutrient absorption. A balanced distribution ensures a range of nutrients for overall health.</li>
+            
+                <li><strong>Metabolic Function:</strong> Each macronutrient plays a specific role in metabolic processes. Carbohydrates are a primary energy source, proteins contribute to metabolic reactions, and fats are involved in energy storage. Proper distribution supports efficient metabolism.</li>
+            
+                <li><strong>Muscle Maintenance:</strong> Adequate protein intake, distributed throughout the day, is crucial for muscle maintenance and growth. This is especially important for individuals engaged in physical activities or those aiming to build and sustain lean muscle mass.</li>
+            
+                <li><strong>Blood Sugar Regulation:</strong> Balanced carbohydrate intake, in conjunction with fiber, helps regulate blood sugar levels. This is essential for overall health, particularly in preventing energy crashes and maintaining steady energy levels.</li>
+            
+                <li><strong>Satiety and Appetite Control:</strong> A well-balanced macronutrient distribution, including an adequate amount of fats and proteins, contributes to feelings of fullness and satiety. This can help control appetite, preventing overeating and supporting weight management.</li>
+            
+                <li><strong>Hormone Balance:</strong> Fats, especially essential fatty acids, play a role in hormone production. A balanced distribution helps maintain hormonal balance, which is crucial for various physiological processes, including reproduction and stress response.</li>
+            
+                <li><strong>Nutrient Absorption:</strong> Fats aid in the absorption of fat-soluble vitamins (A, D, E, K). Including a proper amount of fats in the diet ensures the absorption of these essential vitamins, contributing to overall health.</li>
+            
+                <li><strong>Disease Prevention:</strong> Following a balanced macronutrient distribution is associated with a lower risk of certain chronic diseases, including heart disease, diabetes, and obesity. It promotes overall health and well-being.</li>
+            </ul>
+            <p>In summary, a balanced macronutrient distribution is vital for providing energy, supporting diverse nutritional needs, maintaining metabolic functions, and promoting overall health and disease prevention.</p>
+        </div>
+    </div>
+    <hr>
+    <!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+<script>
+    function toggleDropdown(id, event) {
+        var dropdownContent = document.getElementById(id);
+        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+
+        // Prevent the event from bubbling up to the parent div
+        event.stopPropagation();
+    }
+</script>
+<script src="{{ url_for('static', filename='calculator.js') }}"></script>
+</body>
+</html>

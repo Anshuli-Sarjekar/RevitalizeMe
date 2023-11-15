@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>View Recipe - RevitalizeMe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/viewrecipestyle.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <!--Navigation bar ends-->
+
+    <!-- Recipe Details -->
+    <div class="recipecontainer">
+        <h1><u>{{ recipe['Recipe Name'] }}</u></h1>
+        <div class="time-section">
+            <img src="{{ url_for('static', filename='images/prep_logo.png') }}" alt="Preparation Logo" class="recipelogo"><p><strong>Prep Time:</strong> {{ recipe['Prep Time'] }}</p>
+            <img src="{{ url_for('static', filename='images/cook_logo.png') }}" alt="Preparation Logo" class="recipelogo"><p><strong>Cook Time:</strong> {{ recipe['Cook Time'] }}</p>
+        </div>
+        
+        <div class="nutritional-info-box">
+            <h3><u>Nutritional Information</u></h3>
+            <div class="nutritional-item">
+                <p><strong>Calories:</strong> {{ recipe['Calories'] }} calories</p>
+            </div>
+            <div class="nutritional-item">
+                <p><strong>Protein:</strong> {{ recipe['Protein'] }} gm</p>
+            </div>
+            <div class="nutritional-item">
+                <p><strong>Fat:</strong> {{ recipe['Fats'] }} gm</p>
+            </div>
+            <div class="nutritional-item">
+                <p><strong>Carbohydrates:</strong> {{ recipe['Carbohydrates'] }} gm</p>
+            </div>
+        </div>
+        
+        <!-- Dietary Types -->
+        <p><strong>Dietary Types:</strong>
+            {% if recipe['Dietary Types']|length == 0 %}
+            --
+            {% else %}
+            {% for dietary_type in recipe['Dietary Types'] %}
+                {{ dietary_type }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            {% endif %}
+        </p>
+            
+            <!-- Meal Types -->
+        <p><strong>Meal Types:</strong>
+            {% if recipe['Meal Types']|length == 0 %}
+            --
+            {% else %}
+            {% for meal_type in recipe['Meal Types'] %}
+                {{ meal_type }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            {% endif %}
+        </p> 
+    
+        <p><strong>Ingredients required:</strong></p>    
+        <ol>
+            {% for ingredient in recipe['Ingredients'] %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ol>
+
+        <p><strong>Steps to Follow:</strong></p>
+        <ol>
+            {% for step in recipe['steps'] %}
+                <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>

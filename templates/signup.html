@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginsignup.css') }}">
+    <title>Signup - RevitalizeMe</title>
+</head>
+<body>
+ <!-- Navigation Bar -->
+ <!-- Navigation Bar -->
+ <header>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home </a></li>
+                <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                        <a href="{{ url_for('bp') }}">Hypertension</a>
+                        <a href="{{ url_for('cancer') }}">Cancer</a>
+                        <a href="{{ url_for('pcod') }}">PCOD</a>
+                        <a href="{{ url_for('heart') }}">Heart Attack</a>
+                        <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                        <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                    </div>
+                </li>
+                <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+            </ul>
+        </div>
+        <div class="user-options">
+            {% if 'user_id' in session %}
+                <div class = "hellouser">
+                    {% if 'user_id' in session %}
+                    <p>Hi, {{ session['user_fname'] }}</p>
+                    {% endif %}
+                </div>
+                <a href="{{ url_for('logout') }}">Log Out</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <span class="divider">|</span>
+                <a href="{{ url_for('signup') }}">Signup</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<!--Navigation bar ends-->
+    <div class="signup-container">
+        <h2>Signup</h2>
+        <form method="POST" id="signupform">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                <div class="firstname">
+                    {{ form.fname.label }} {{ form.fname(size=32, placeholder="Enter your first name") }}
+                </div>
+    
+                {% if form.fname.errors %}
+                    <p class="error">{{ form.fname.errors[0] }}</p>
+                {% endif %}
+            </div>
+
+            <div class = "form-group">
+                <div class="lastname">
+                    {{ form.lname.label }} {{ form.lname(size=32, placeholder="Enter your last name") }}
+                </div>
+    
+                {% if form.lname.errors %}
+                    <p class="error">{{ form.lname.errors[0] }}</p>
+                {% endif %}
+            </div>
+            <div class = "form-group">
+                <div class="signupemail">
+                    {{ form.email.label }} {{ form.email(size=32, placeholder="Enter your email") }}
+                </div>
+    
+                {% if form.email.errors %}
+                    <p class="error">{{ form.email.errors[0] }}</p>
+                {% endif %}    
+            </div>
+            <div class = "form-group">
+                <div class="signuppass">
+                    {{ form.password.label }} {{ form.password(size=32, placeholder="Set your password") }}
+                </div>
+    
+                {% if form.password.errors %}
+                    <p class="error">{{ form.password.errors[0] }}</p>
+                {% endif %}
+            </div>
+            <div class = "form-group">
+                <div class="signupconfirmpass">
+                    {{ form.confirm_password.label }} {{ form.confirm_password(size=32, placeholder="Confirm your password") }}
+                </div>
+    
+                {% if form.confirm_password.errors %}
+                    <p class="error">{{ form.confirm_password.errors[0] }}</p>
+                {% endif %}    
+            </div>            
+            <button class="signupbutton" type="submit">Signup</button>
+        </form>
+        <p id="signup-error" class="error">
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+        </p>
+        <div class="alreadyregistered">
+            <p>Already Registered?&nbsp;&nbsp;</p>
+            <a href="{{ url_for('login') }}">Login Now</a>
+        </div>
+    </div>
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>
+
+<!-- <form method="POST">
+            <div class = "firstname">
+                {{ form.hidden_tag() }}
+                {{ form.fname.label }} {{ form.fname(size=32, placeholder="Enter your first name") }}
+            </div>
+            <div class = "lastname">
+                {{ form.lname.label }} {{ form.lname(size=32, placeholder="Enter your last name") }}
+            </div>
+            <div class = "signupemail">
+                {{ form.email.label }} {{ form.email(size=32, placeholder="Enter your email") }}
+            </div>
+            <div class = "signuppass">
+                {{ form.password.label }} {{ form.password(size=32, placeholder="Set your password") }}
+            </div>
+            <div class = "signupconfirmpass">
+                {{ form.confirm_password.label }} {{ form.confirm_password(size=32, placeholder="Confirm your password") }}
+            </div>         
+            <button class = "signupbutton" type="submit">Signup</button>
+        </form> -->

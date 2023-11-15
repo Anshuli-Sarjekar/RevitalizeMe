@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifestyle Disorder Information - RevitalizeMe</title>
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lifestylecss.css') }}">
+</head>
+<body class="lifestyle-body">
+<!-- Navigation Bar -->
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home </a></li>
+                <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                        <a href="{{ url_for('bp') }}">Hypertension</a>
+                        <a href="{{ url_for('cancer') }}">Cancer</a>
+                        <a href="{{ url_for('pcod') }}">PCOD</a>
+                        <a href="{{ url_for('heart') }}">Heart Attack</a>
+                        <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                        <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                    </div>
+                </li>
+                <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+            </ul>
+        </div>
+        <div class="user-options">
+            {% if 'user_id' in session %}
+                <div class = "hellouser">
+                    {% if 'user_id' in session %}
+                    <p>Hi, {{ session['user_fname'] }}</p>
+                    {% endif %}
+                </div>
+                <a href="{{ url_for('logout') }}">Log Out</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <span class="divider">|</span>
+                <a href="{{ url_for('signup') }}">Signup</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<section class="lifestyle-hero">
+    <div class="container">
+    </div>
+</section>
+    <div class=" lifestyle-container">
+        <div class="lifestyle-title">
+            <h1>Understanding Lifestyle Disorders: Taking Control of Your Well-Being</h1>
+        </div>
+    
+        <div class="lifestyle-navigation">
+            <a href="#intro">Introduction</a>
+            <span class="separator">|</span>
+            <a href="#type">Common Lifestyle Disorders</a>
+            <span class="separator">|</span>
+            <a href="#causes">Causes</a>
+            <span class="separator">|</span>
+            <a href="#prevention">Prevention</a>
+            <!-- Add more article headings as needed -->
+        </div>  
+    
+        <div class = "lifestyle-introduction" id="intro">
+            <h2>Introduction</h2>
+            <p>In today's fast-paced world, our lifestyle choices play a significant role in shaping our health and overall well-being. Lifestyle disorders, also known as non-communicable diseases (NCDs), are a collection of health conditions intricately tied to the choices we make daily. Unlike diseases linked to genetics or infections, lifestyle disorders derive their name from the intimate connection between our daily decisions and their impact on our health. These disorders beckon us to take control of our lives and make informed choices that lead to better health and longevity.        </p>
+        </div>
+    
+        <div class="lifestyle-types" id="types">
+            <h2>Common Lifestyle Disorders:</h2>
+            <h3>Diabetes: Managing the Sweet Challenge</h3>
+            <p>Diabetes is a lifestyle disorder that calls for diligent management of blood sugar levels. It demands careful attention to dietary habits, physical activity, and stress management. Lifestyle modifications, including a balanced, nutrient-rich diet, regular exercise, and the avoidance of detrimental habits, empower individuals to take charge of their health. Preventing diabetes and managing it effectively are achievable through informed lifestyle choices.</p>
+            <h3>Hypertension: Controlling the Silent Killer</h3>
+            <p>Hypertension, often referred to as the "silent killer," silently affects millions of lives worldwide. Lifestyle choices, such as a diet high in sodium, sedentary behavior, and unmanaged stress, contribute to this condition. Taking control of hypertension involves adopting a heart-healthy lifestyle, which includes reducing salt intake, regular physical activity, and stress management techniques. These proactive measures can help individuals maintain healthy blood pressure levels.</p>
+            <h3>Cancer: Reducing Risks through Lifestyle
+            </h3>
+            <p>Cancer, a complex group of diseases, is not solely dictated by genetics. Lifestyle factors, such as tobacco use, unhealthy diets, exposure to carcinogens, and a lack of physical activity, can elevate cancer risks. By making informed choices, such as quitting tobacco, embracing a diet rich in fruits and vegetables, and maintaining a healthy weight, individuals can significantly reduce their risk of cancer and contribute to their overall well-being.
+            </p>
+            <h3>PCOD: Balancing Hormones through Lifestyle
+            </h3>
+            <p>Polycystic Ovary Syndrome (PCOD) affects many women and can disrupt hormonal balance. A lifestyle approach focused on maintaining a healthy weight, dietary choices that support hormonal balance, and regular exercise can help manage PCOD symptoms and improve quality of life.
+            </p>
+            <h3>Heart Attack: Protecting the Heart</h3>
+            <p>Heart attacks often result from poor lifestyle choices, including a high-sugar diet, sedentary behavior, and smoking. Taking care of one's heart involves adopting a heart-healthy diet, engaging in regular physical activity, and avoiding habits that endanger heart health. By doing so, individuals can significantly reduce the risk of heart attacks and maintain robust cardiovascular health.
+            </p>
+            <h3>Thyroid Disorders: Balancing Metabolism
+            </h3>
+            <p>Disorders of the thyroid gland can lead to hormonal imbalances affecting metabolism. A healthy lifestyle encompassing a nutrient-rich diet, exercise, and proper stress management can be instrumental in managing thyroid conditions and promoting overall well-being.
+            </p>
+            <h3>Fatty Liver Disease: Lifestyle Interventions
+            </h3>
+            <p>Non-alcoholic fatty liver disease (NAFLD) is closely associated with obesity and unhealthy dietary choices. Weight management and dietary adjustments can help individuals reverse the effects of fatty liver disease and preserve liver health.
+            </p>
+            <h3>Obesity: Transforming Lives through Lifestyle
+            </h3>
+            <p>Obesity is a complex lifestyle disorder, often resulting from an imbalance between calorie intake and expenditure. Effective weight management strategies involve adopting a balanced diet, increasing physical activity, and seeking professional guidance to create sustainable changes.
+            </p>
+        </div>
+    
+        <div class="lifestyle-causes" id="causes">
+            <h1 style="color: black;">Lifestyle Disorders: Unraveling the Science</h1>
+            <p>Explore the complex interplay of choices and health</p>
+        
+            <h2>Diet and Nutrition</h2>
+            <ul>
+                <li>Consumption of processed foods high in sugar and unhealthy fats disrupts metabolic balance.</li>
+                <li>Nutrient deficiencies from poor dietary habits lead to a range of health problems.</li>
+                <li>Inadequate dietary fiber affects gastrointestinal health and regular bowel movements.</li>
+                <li>Unhealthy dietary practices impact cells and gene expression.</li>
+            </ul>
+        
+            <h2>Physical Inactivity and Sedentary Lifestyle</h2>
+            <ul>
+                <li>Lack of exercise promotes obesity, hypertension, and heart diseases.</li>
+                <li>Physical inactivity weakens muscles, tissues, and affects metabolism.</li>
+                <li>It adversely impacts the cardiovascular and musculoskeletal systems.</li>
+            </ul>
+        
+            <h2>Substance Abuse</h2>
+            <ul>
+                <li>Abuse of alcohol, tobacco, and drugs damages organs and tissues.</li>
+                <li>Chemical compounds in drugs alter brain chemistry, leading to addiction.</li>
+                <li>Substance abuse is linked to liver diseases, cancer, and mental health disorders.</li>
+                <li>Withdrawal symptoms and cravings perpetuate addiction.</li>
+            </ul>
+        
+            <h2>Sleep Hygiene</h2>
+            <ul>
+                <li>Irregular sleep patterns disrupt circadian rhythms, affecting physiological processes.</li>
+                <li>Sleep deprivation has consequences for cognitive function and hormonal regulation.</li>
+                <li>Poor sleep hygiene hinders restorative sleep and physiological processes.</li>
+                <li>Sleep disorders impact hormonal balance and mood.</li>
+            </ul>
+        
+            <h2>Chronic Stress</h2>
+            <ul>
+                <li>Prolonged stress releases cortisol and adrenaline, disrupting various functions.</li>
+                <li>Stress and hormones disrupt digestion, immunity, and cardiovascular health.</li>
+                <li>Chronic stress is associated with anxiety, depression, and mental health issues.</li>
+                <li>Stress response mechanisms play a central role in these interactions.</li>
+            </ul>
+        
+            <p>Understanding these complex relationships between choices and health empowers us to make informed decisions that promote overall well-being.</p>
+        </div>    
+    
+        <div class="lifestyle-prevention" id = "prevention">
+            <h2>Prevention Tips for Lifestyle Disorders</h2>
+            <p>Lifestyle disorders are often preventable through simple yet effective measures that encompass various aspects of daily life. By adopting the following guidelines, you can reduce the risk of lifestyle disorders and enjoy a healthier, more balanced life.</p>
+    
+            <ul>
+                <li><strong>Healthy Eating:</strong> Choose whole, unprocessed foods, including a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats. Practice portion control and maintain regular meal schedules to support metabolic stability.</li>
+                
+                <li><strong>Stay Hydrated:</strong> Drink an adequate amount of water daily to support various bodily functions.</li>
+    
+                <li><strong>Physical Activity:</strong> Engage in at least 150 minutes of moderate-intensity or 75 minutes of vigorous-intensity aerobic activity per week, complemented by muscle-strengthening activities on two or more days per week. Avoid prolonged sitting and prioritize daily physical activity.</li>
+    
+                <li><strong>Responsible Substance Use:</strong> Limit alcohol consumption to recommended levels. If you use tobacco or other harmful substances, consider quitting or seeking help to overcome addiction.</li>
+    
+                <li><strong>Optimal Sleep Patterns:</strong> Maintain a consistent sleep routine by going to bed and waking up at the same time every day. Create a relaxing sleep environment and limit screen time before bedtime.</li>
+    
+                <li><strong>Stress Management:</strong> Practice relaxation techniques such as deep breathing, meditation, and mindfulness. Engage in regular exercise to reduce stress hormones and boost mood. Set realistic goals, prioritize self-care, and seek social support to manage stress effectively.</li>
+            </ul>
+    
+            <p>By integrating these tips into your daily life, you can significantly reduce the risk of lifestyle disorders and enjoy the benefits of improved well-being.</p>
+        </div>
+    
+        <div class="lifestyle-disclaimer">
+            <h2 style = "color:black;">Disclaimer:</h2>
+            <p>The information provided on this website is for informational purposes only and is not a substitute for professional medical advice. Always consult with a healthcare professional for specific medical advice and recommendations.</p>
+        </div>
+    </div>
+    
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>      
+<script>
+        
+    document.addEventListener("DOMContentLoaded", function() {
+        // Add smooth scrolling to all anchor links
+        const anchorLinks = document.querySelectorAll('a[href^="#"]');
+        for (const link of anchorLinks) {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+    
+                const targetId = this.getAttribute("href").substring(1); // Remove the '#' character
+                const targetElement = document.getElementById(targetId);
+    
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        }
+    });
+    </script>  
+</body>
+</html>

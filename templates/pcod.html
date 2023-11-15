@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lifestylecss.css') }}">
+    <title>PCOD - RevitalizeMe</title>
+</head>
+<body class="lifestyle-body">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <section class="pcod-hero">
+        <div class="container">
+        </div>
+    </section>
+
+   <div class = "lifestyle-container">
+    <div class="pcod-title">
+        <h1>PCOD - Prevention, Risk Factors & Management</h1>
+    </div>
+
+    <div class="pcod-navigation">
+        <a href="#intro">Introduction</a>
+        <span class="separator">|</span>
+        <a href="#causes">Causes and Risk Factors</a>
+        <span class="separator">|</span>
+        <a href="#symptoms">Symptoms and Signs</a>
+        <span class="separator">|</span>
+        <a href="#prevention">Prevention</a>
+        <!-- Add more article headings as needed -->
+    </div>   
+
+ 
+        <div class="pcod-introduction" id="intro">
+            <h2>Introduction</h2>
+            <p>PCOD stands for Polycystic Ovary Syndrome. It's a common health condition that affects people with ovaries, particularly during their childbearing years. PCOD is characterized by an imbalance of reproductive hormones and can lead to various symptoms and potential health problems. These can include irregular menstrual periods, excess hair growth, acne, and obesity. It can also increase the risk of other health issues like type 2 diabetes and heart disease.
+            </p>
+            <p>PCOD occurs when the ovaries produce more androgens (male hormones) than usual, which can lead to the development of small collections of fluid-filled sacs (cysts) in the ovaries. The exact cause of PCOD is not entirely understood, but it's believed to involve a combination of genetic and environmental factors.
+            </p>
+        </div>
+
+        <div class="pcod-causes" id="causes">
+            <h2>Causes and Risk Factors</h2>
+            <ul>
+                <li><b>Genetics:</b> Family history of PCOD can increase the risk of developing the condition.</li>
+                <li><b>Hormonal Imbalances:</b> Elevated levels of androgens (male hormones) are a key factor in PCOD.</li>
+                <li><b>Insulin Resistance:</b> Many individuals with PCOD also have insulin resistance, which can lead to elevated blood sugar levels.</li>
+                <li><b>Obesity:</b> Excess body weight is linked to PCOD and can exacerbate symptoms.</li>
+                <li><b>Sedentary Lifestyle:</b> Lack of physical activity can contribute to the development of PCOD.</li>
+                <li><b>Unhealthy Diet:</b> A diet high in refined sugars and processed foods may increase the risk.</li>
+                <li><b>Environmental Factors:</b> Exposure to certain endocrine-disrupting chemicals can play a role.</li>
+                <li><b>Stress:</b> Chronic stress may exacerbate PCOD symptoms and hormonal imbalances.</li>
+            </ul>
+        </div>
+
+        <div class="pcod-symptoms" id="symptoms">
+            <h2>Symptoms and Signs</h2>
+            <ul>
+                <li><b>Irregular Menstrual Cycles:</b> Women with PCOD often experience irregular, infrequent, or absent menstrual periods.</li>
+                <li><b>Excessive Hair Growth (Hirsutism):</b> Increased hair growth on the face, chest, back, or other body areas is common in PCOD.</li>
+                <li><b>Acne and Oily Skin:</b> Skin problems, such as acne and oily skin, may occur due to hormonal imbalances.</li>
+                <li><b>Weight Gain:</b> Many individuals with PCOD struggle with weight gain or obesity.</li>
+                <li><b>Hair Thinning or Hair Loss (Male Pattern Baldness):</b> Hair loss, similar to male pattern baldness, can affect some women with PCOD.</li>
+                <li><b>Skin Darkening (Acanthosis Nigricans):</b> Dark patches of skin, often in body creases, can develop in PCOD cases.</li>
+                <li><b>Pelvic Pain:</b> Pelvic discomfort or pain may be experienced, especially during menstruation.</li>
+                <li><b>Fertility Issues:</b> PCOD is a common cause of infertility or difficulty conceiving in women.</li>
+                <li><b>Mood Changes:</b> Mood swings, depression, and anxiety can be associated with PCOD.</li>
+                <li><b>Sleep Problems:</b> Sleep disturbances, such as sleep apnea, are more prevalent in women with PCOD.</li>
+            </ul>
+        </div>
+
+        <div class="pcod-prevention" id="prevention">
+            <h2>Prevention: Diet, Stress Management & Fitness</h2>
+            <h3>Diet:</h3>
+            <ul>
+                <li><b>Low Glycemic Index (GI) Foods:</b> Focus on consuming foods with a low glycemic index to help regulate blood sugar levels.</li>
+                <li><b>Balanced Nutrition:</b> Maintain a well-balanced diet with a variety of nutrients, including whole grains, lean proteins, and healthy fats.</li>
+                <li><b>Control Carbohydrate Intake:</b> Be mindful of carbohydrate intake to prevent blood sugar spikes. Choose complex carbohydrates.</li>
+                <li><b>Healthy Fats:</b> Include sources of healthy fats like avocados, nuts, and olive oil in your diet.</li>
+                <li><b>Portion Control:</b> Watch portion sizes to manage calorie intake effectively.</li>
+            </ul>
+            <h3>Stress Management:</h3>
+            <ul>
+                <li><b>Stress Reduction Techniques:</b> Practice stress-reduction techniques like meditation, yoga, or deep breathing exercises.</li>
+                <li><b>Adequate Sleep:</b> Ensure you get enough quality sleep to help manage stress and maintain hormonal balance.</li>
+                <li><b>Support Network:</b> Establish a support network to share concerns and emotions with friends or family.</li>
+                <li><b>Time Management:</b> Set realistic goals and manage your time effectively to reduce stress levels.</li>
+            </ul>
+            <h3>Fitness:</h3>
+            <ul>
+                <li><b>Regular Exercise:</b> Engage in regular physical activity to enhance insulin sensitivity and promote overall well-being.</li>
+                <li><b>Aerobic Exercise:</b> Aim for at least 150 minutes of moderate-intensity aerobic activity each week.</li>
+                <li><b>Strength Training:</b> Include strength training exercises to build muscle and boost metabolism.</li>
+                <li><b>Stay Active:</b> Incorporate physical activity into your daily routine, such as walking and light activities.</li>
+            </ul>
+        </div>
+        <div class="pcod-disclaimer">
+            <h2 style = "color: black;">Disclaimer:</h2>
+            <p>The information provided on this website is for informational purposes only and is not a substitute for professional medical advice. Always consult with a healthcare professional for specific medical advice and recommendations.</p>
+        </div>
+   </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Add smooth scrolling to all anchor links
+                const anchorLinks = document.querySelectorAll('a[href^="#"]');
+                for (const link of anchorLinks) {
+                    link.addEventListener("click", function(e) {
+                        e.preventDefault();
+            
+                        const targetId = this.getAttribute("href").substring(1); // Remove the '#' character
+                        const targetElement = document.getElementById(targetId);
+            
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: "smooth" });
+                        }
+                    });
+                }
+            });
+        </script>         
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>

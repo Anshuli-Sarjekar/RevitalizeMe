@@ -1,0 +1,8 @@
+Flask
+SQLAlchemy
+Flask-WTF
+Flask-Bcrypt
+WTForms
+passlib
+gunicorn
+tabulate

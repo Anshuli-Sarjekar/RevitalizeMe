@@ -1,0 +1,352 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #451952;
+}
+
+header {
+    background-color: #f39f5a; /*Change to your desired color code */
+    color: #fff; /* Change text color to contrast with the background */
+    padding: 10px 0;
+    height: 100px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-top: 0;
+    margin-right: 0;
+    padding: 10px;
+}
+
+.logo {
+    margin-top: auto;
+}
+
+.logo-image{
+    height: 80px;
+    width: 80px;
+    padding: 0;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    color: black;
+    width: 100%;
+}
+
+.nav-links li {
+    margin-right: 25px;
+    font-size: 16px;
+}
+
+.nav-links a {
+    color: black; /* Change link color */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s; /* Add a smooth color transition on hover */
+}
+
+.nav-links a:hover {
+    color: rgb(239, 8, 69); /* Change the color on hover to a different color */
+}
+
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f39f5a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 16px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+.user-options a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px; /* Adjust the margin as needed */
+    display: inline;
+}
+
+.user-options a:hover{
+    color: rgb(239, 8, 69);
+}
+
+.divider {
+    color: black;
+    font-weight: bold;
+}
+
+.hellouser p{
+    color: black;
+    font-size: 18px;
+    margin-top: -35px;
+    font-weight: bold;
+}
+
+/* Add styling for the calculator page */
+.calculator-page {
+    background-color: #451952;
+    /* background: url('/static/images/background.jpg') center/cover no-repeat; */
+    padding: 20px;
+}
+.calculator-heading {
+    font-size: 28px;
+    color: #F39F5A;
+    text-align: center;
+}
+h3{
+    color: #F39F5A;
+}
+
+.calculator-para {
+    font-size: 16px;
+    color: #F39F5A;
+    text-align: left;
+
+}
+/* Style the calculator form */
+.calculator-form {
+    background-color: #EFE1D1;
+    max-width: 600px;
+    max-height: 700px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    padding-top: 20px;
+    border: 2px solid #F39F5A;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* align-items: center; Center items horizontally */
+}
+
+.form-group {
+    width: 85%;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+label {
+    font-size: 16px;
+    text-decoration: bold;
+    display: block;
+    color: #333;
+    margin-left: 20px;
+    flex:1;
+    text-align: left;
+}
+
+input[type="number"], select {
+    flex: 2;
+    padding: 10px;
+    font-size: 13px;
+    border: 2px solid #451952;
+    border-radius: 8px;
+}
+
+/* Style the calculate button */
+#calculate-button {
+    background-color: #AE445A;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#calculate-button:hover {
+    background-color: #e94e2f;
+}
+
+/* Style the calculator results */
+.calculator-results {
+    margin-top: 40px;
+    background-color: #EFE1D1;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.calculator-results h2{
+    margin-top: 20px;
+    color: black;
+    font-size: 21px;
+    text-decoration: underline;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.calculator-results h3{
+    margin-top: 20px;
+    color: black;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.calculator-results p{
+    margin-top: 20px;
+    color: black;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.calculator-results li{
+    margin-top: 20px;
+    color: black;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.faq{
+    color: #f39f5a;
+    margin-left: 10px;
+}
+.faq-item {
+    cursor: pointer;
+    margin-bottom: 10px; /* Add space between FAQ items */
+    background-color: #451952;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #451952; /* Add a background color to FAQ headings */
+    color: #f39f5a;
+    font-size: 18px;
+}
+
+.content {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #EFE1D1;
+    border: 2px solid #f39f5a;
+    border-radius: 15px;
+}
+.content ul{
+    list-style-type: disc; 
+}
+.content li{
+    margin-bottom: 10px;
+}
+
+hr {
+    border: none; /* Remove default border */
+    height: 1px; /* Set the height of the line */
+    background-color: #f39f5a; /* Set the color of the line */
+    margin: 20px 0; /* Add margin above and below the line for spacing */
+}
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+.contact-info {
+    float: left;
+    width: 50%;
+    margin-left: 200px;
+}
+.contact-info p {
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.message form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -200px;
+}
+.message form input{
+    width: 40%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the inputs */
+}
+.message form textarea{
+    height: 100px;
+    width: 40%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the inputs */
+}
+.message-button {
+    width: 80px;
+    text-align: center;
+    background-color: #662549;
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    border: 1px black solid;
+    
+}
+.links {
+    /* float: right; */
+    width: 50%;
+    text-align: left;
+    /* flex-direction: column; */
+    align-items: start;
+    margin-right: 50px;
+    margin-top: 20px; /* Adjust as needed */
+}
+.links a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px; /* Adjust as needed */
+    /* margin-bottom: 5px; */
+}
+.copyright {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+
+
+
+
+

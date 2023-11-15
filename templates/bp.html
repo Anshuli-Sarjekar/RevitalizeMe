@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypertension - RevitalizeMe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lifestylecss.css') }}">
+</head>
+<body class="lifestyle-body">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <section class="bp-hero">
+        <div class="container">
+        </div>
+    </section>
+    <!--Navigation bar ends-->
+    <div class = "lifestyle-container">
+        <div class="bp-title">
+            <h1>Hypertension - Prevention, Risk Factors & Management</h1>
+        </div>
+    
+        <div class="bp-navigation">
+            <a href="#intro">Introduction</a>
+            <span class="separator">|</span>
+            <a href="#causes">Causes and Risk Factors</a>
+            <span class="separator">|</span>
+            <a href="#symptoms">Symptoms and Signs</a>
+            <span class="separator">|</span>
+            <a href="#prevention">Prevention</a>
+            <!-- Add more article headings as needed -->
+        </div>   
+    
+        <div class="bp-introduction" id = "intro">
+            <h2>Introduction</h2>
+            <p>Hypertension, commonly known as high blood pressure, is a medical condition characterized by elevated or abnormally high blood pressure within the arteries. Blood pressure is the force of blood against the walls of the arteries as the heart pumps it around the body. It is typically measured in millimeters of mercury (mm Hg) and expressed as two values:</p>
+            <p><b>Systolic Pressure</b>: The higher value represents the pressure when the heart beats and pumps blood into the arteries.</p>
+            <p><b>Diastolic Pressure</b>: The lower value represents the pressure when the heart is at rest between beats.</p>
+            <p>Normal blood pressure is typically defined as around 120/80 mm Hg. Hypertension occurs when blood pressure consistently exceeds 130/80 mm Hg. It is often referred to as the "silent killer" because it can be asymptomatic, and if left untreated, it can lead to serious health complications.</p>
+        </div>
+    
+        <div class="bp-causes" id="causes">
+            <h2>Causes and Risk Factors</h2>
+            <p>Elevated blood pressure can result from various factors that place added strain on artery walls. One contributing factor is the accumulation of fats, cholesterol, and other substances within and on the walls of arteries, a condition known as atherosclerosis. Conversely, high blood pressure, also known as hypertension, can, in turn, lead to the development of atherosclerosis.</p>
+            <h3><b>Potential causes of hypertension:</b></h3>
+            <ul>
+                <li>Adrenal gland disorders</li>
+                <li>Congenital heart defects (heart problems affecting blood vessels present at birth)</li>
+                <li>Usage of illegal drugs, such as cocaine and amphetamines</li>
+                <li>Kidney disease</li>
+                <li>Obstructive sleep apnea</li>
+                <li>Use of certain medications, including birth control pills, cold and sinus medicines, over-the-counter pain relievers containing caffeine, and some prescription drugs</li>
+                <li>Thyroid disease</li>
+            </ul>
+    
+            <h3><b>Risk factors linked to hypertension</b></h3>
+            <ul>
+                <li>
+                    <p><strong>Obesity or being overweight:</strong> Excess weight increases the likelihood of high blood pressure, a significant risk factor for heart disease and strokes.</p>
+                </li>
+                <li>
+                    <p><strong>Family history of high blood pressure:</strong> If you have a parent or sibling with the condition, you are at a higher risk of developing elevated blood pressure.</p>
+                </li>
+                <li>
+                    <p><strong>Lack of physical activity:</strong> Insufficient exercise can lead to weight gain, elevating the risk of high blood pressure.</p>
+                </li>
+                <li>
+                    <p><strong>Unhealthy diet high in sodium and low in potassium:</strong> Proper sodium and potassium levels are crucial for blood pressure regulation. Excessive sodium or inadequate potassium intake may contribute to high blood pressure.</p>
+                </li>
+                <li>
+                    <p><strong>Tobacco use:</strong> Smoking, chewing tobacco, or exposure to secondhand smoke can lead to increased blood pressure.</p>
+                </li>
+                <li>
+                    <p><strong>Excessive alcohol consumption:</strong> High alcohol intake, especially in men, has been associated with elevated blood pressure.</p>
+                </li>
+                <li>
+                    <p><strong>Underlying chronic conditions:</strong> Conditions like kidney disease, diabetes, and sleep apnea can raise the risk of high blood pressure.</p>
+                </li>
+                <li>
+                    <p><strong>Age:</strong> Advancing age is a common factor linked to elevated blood pressure.</p>
+                </li>
+                <li>
+                    <p><strong>Race:</strong> High blood pressure is more prevalent among Black individuals and often occurs at an earlier age compared to white individuals.</p>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="bp-symptoms" id ="symptoms">
+            <h2 style = "color: black;">Symptoms and Signs of Hypertension</h2>
+            <ul>
+                <li>High blood pressure is often asymptomatic, and many individuals may not experience noticeable symptoms.</li>
+                <li>In some cases, individuals with hypertension may experience symptoms like:</li>
+                <li>Headaches, especially in the back of the head and neck.</li>
+                <li>Dizziness or lightheadedness.</li>
+                <li>Shortness of breath.</li>
+                <li>Chest pain.</li>
+                <li>Palpitations (a strong, irregular heartbeat).</li>
+                <li>Nosebleeds.</li>
+                <li>Visual changes.</li>
+                <li>Chronic kidney disease.</li>
+                <li>Severe hypertension may lead to more serious symptoms like confusion, severe headache, fatigue, and chest pain.</li>
+                <li>If you experience any of these symptoms, it's important to seek medical attention and have your blood pressure checked.</li>
+            </ul>
+        </div>
+        
+        <div class="bp-prevention" id="prevention">
+            <h2>Prevention: Role of Diet, Physical Activity & Stress Management</h2>
+            <ul>
+                <li>Maintain a balanced diet that includes plenty of fruits, vegetables, whole grains, and lean proteins.</li>
+                <li>Limit your intake of high-sodium foods, processed foods, and excessive salt.</li>
+                <li>Monitor your blood pressure regularly to detect any changes.</li>
+                <li>Engage in regular physical activity, such as walking, jogging, or swimming, to help maintain a healthy weight and reduce hypertension risk.</li>
+                <li>Manage stress through relaxation techniques like meditation, yoga, or deep breathing exercises.</li>
+                <li>Limit alcohol consumption, as excessive drinking can raise blood pressure.</li>
+                <li>Avoid smoking and secondhand smoke exposure, as smoking is a risk factor for hypertension.</li>
+                <li>Ensure you get enough quality sleep, as inadequate sleep can contribute to high blood pressure.</li>
+                <li>Discuss your hypertension risk with a healthcare professional and follow their recommendations.</li>
+            </ul>
+        </div>
+    
+        <div class="bp-disclaimer">
+            <h2 style = "color: black;">Disclaimer:</h2>
+            <p>The information provided on this website is for informational purposes only and is not a substitute for professional medical advice. Always consult with a healthcare professional for specific medical advice and recommendations.</p>
+        </div>
+        
+        <div class="bp-references">
+            <h2>References and Sources:</h2>
+            <p>Credible sources and references have been used to provide the information on this website. Below are some of the sources referenced:</p>
+            <ul>
+                <li><a href="https://www.mayoclinic.org/diseases-conditions/prehypertension/symptoms-causes/syc-20376703#causes" target="_blank">Mayo Clinic: Elevated blood pressure</a></li>
+            </ul>
+        </div>
+    </div>
+    
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Add smooth scrolling to all anchor links
+        const anchorLinks = document.querySelectorAll('a[href^="#"]');
+        for (const link of anchorLinks) {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+    
+                const targetId = this.getAttribute("href").substring(1); // Remove the '#' character
+                const targetElement = document.getElementById(targetId);
+    
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        }
+    });
+    </script>
+<!-- Footer Section -->
+</body>
+</html>

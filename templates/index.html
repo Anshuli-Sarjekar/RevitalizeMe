@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevitalizeMe: Discover, Transform, Thrive</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links" id="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="logoutdelete">
+                        <a href="{{ url_for('logout') }}">Log Out   |&nbsp;&nbsp;</a>
+                        <form method="POST" action="{{ url_for('delete_account') }}">
+                            {{ form.hidden_tag() }}
+                            <a href="{{ url_for('delete_account') }}">Delete Account</a>
+                        </form> 
+                    </div>    
+                {% else %}
+                    <div class = "loginsignup">
+                        <a href="{{ url_for('login') }}">Login&nbsp;&nbsp;</a>
+                        <span class="divider">|</span>
+                        <a href="{{ url_for('signup') }}">&nbsp;&nbsp;Signup</a>
+                    </div>
+                {% endif %}
+            </div>         
+        </div>
+    </header>
+    <!-- Check if the user is logged in -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to RevitalizeMe!!!</h1>
+            <p><b>Discover, Transform, Thrive</b></p>
+            <!-- <p><b>Your Path to a Healthier Life</b></p> -->
+            <a href="{{ url_for('signup') }}" class="cta-button">Get Started</a>
+        </div>
+    </section>
+    
+ <!-- Featured Content Section -->
+ <section class="featured-content">
+    <div class="feature-tile macronutrients">
+        <div class="feature-icon">
+            <img src="{{ url_for('static', filename='images/macronutrients-icon.jpg') }}" alt="macronutrients-icon">
+        </div>
+        <div class="feature-description">
+            <h2>Macronutrients & BMR Calculator</h2>
+            <p>Our Macronutrients & Basal Metabolic Rate (BMR) Calculator is a powerful tool designed to help you optimize your nutrition and fitness journey. It serves two essential purposes: Your BMR represents the number of calories your body needs to function at rest. It's the foundation for determining your daily calorie requirements. By knowing your BMR, you can create a customized calorie intake plan that aligns with your objectives. Whether you're seeking weight loss, maintenance, or muscle gain, our calculator simplifies this process.</p>
+            <p>Understanding the right balance of macronutrients—protein, carbohydrates, and fats—is crucial for achieving your health and fitness goals. Our calculator determines the ideal macronutrient distribution tailored to your specific needs. Whether you're looking to build muscle, lose weight, or maintain a healthy lifestyle, this tool provides personalized recommendations.</p>
+        </div>
+    </div>
+
+    <div class="feature-tile recipes">
+        <div class="feature-icon">
+            <img src="{{ url_for('static', filename='images/recipes-icon.jpg') }}" alt="recipes-icon">
+        </div>
+        <div class="feature-description">
+            <h2>Discover a World of Healthy Recipes</h2>
+            <p>Eating well is at the heart of a healthy lifestyle, and we believe that everyone should have the opportunity to savor delicious, nutritious meals tailored to their dietary preferences. Our "Healthy Recipes" feature opens the door to a vast collection of recipes designed to cater to a range of dietary types and meal preferences. Whether you're a vegan, vegetarian, gluten-free enthusiast, or seeking low-sodium and high-fiber options, our recipe collection offers a diverse array of choices to suit your unique dietary needs. 
+            </p>
+            <p> Embark on a culinary journey with a diverse selection of dishes for every mealtime. From energizing breakfasts to satisfying lunches and dinners, to delectable sides, appetizers, desserts, and refreshing salads, you'll find something to delight your palate at every meal. </p>
+        </div>
+    </div>
+
+    <div class="feature-tile blog">
+        <div class="feature-icon">
+            <img class="calorie" src="{{ url_for('static', filename='images/blog-icon.jpg') }}" alt="blog-icon">
+        </div>
+        <div class="feature-description">
+            <h2>Calorie & Nutrient Tracking: Unleash the Power of Mindful Eating</h2>
+            <p>Calorie & Nutrient Tracking: Empower your journey to well-being by effortlessly recording your daily meals, including breakfast, snacks, lunch, and dinner. Our user-friendly interface provides you with a clear picture of your nutrition, including macronutrients (proteins, fats, and carbohydrates), calorie intake, cholesterol, fiber, sugar, sodium, and potassium quantities in each food item. Whether you're working towards weight management, health goals, or simply seeking a balanced diet, our Calorie & Nutrient Tracking feature equips you with the knowledge to make informed, health-conscious choices, making it an essential tool on your path to a healthier, happier you.
+
+            </p>
+        </div>
+    </div>
+
+    <div class="feature-tile disorders">
+        <div class="feature-icon">
+            <img src="{{ url_for('static', filename='images/disorders-icon.jpg') }}" alt="disorders-icon">
+        </div>
+        <div class="feature-description">
+            <h2>Lifestyle Disorders: Mastering Health through Choice</h2>
+            <p>Lifestyle disorders, or non-communicable diseases, are a collection of health ailments intricately woven into the fabric of our choices. These include diabetes, hypertension, cancer, obesity, and more, and they derive their name from their intimate connection with our daily decisions rather than genetics or infections. Unfolding through dietary habits, physical activity, stress, and even the air we breathe, these conditions beckon us to reclaim mastery over our wellbeing. Prevention comes through the art of selecting a balanced, nutrient-rich diet, embracing regular exercise, managing stress, and shunning detrimental habits. By making these choices, we craft lives that are both longer and richer.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Anshuli Sarjekar</p>
+        <p>Contact Info:</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button class="message-button" type="submit">Send</button>
+            </form>
+        </div>        
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("nav-links");
+        menu.classList.toggle("show");
+    }
+    // Close the menu when a link is clicked (optional)
+    var links = document.querySelectorAll("#nav-links a");
+    links.forEach(function(link) {
+        link.addEventListener("click", function() {
+            var menu = document.getElementById("nav-links");
+            menu.classList.remove("show");
+        });
+    });
+</script>
+
+</body>
+</html>

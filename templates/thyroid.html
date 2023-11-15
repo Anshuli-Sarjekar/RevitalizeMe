@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lifestylecss.css') }}">
+    <title>Thyroid - RevitalizeMe</title>
+</head>
+<body class="lifestyle-body">
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    
+    <section class="thyroid-hero">
+        <div class="container">
+        </div>
+    </section>
+
+    <div class = "lifestyle-container">
+        
+    <div class="thyroid-title">
+        <h1>Thyroid: Prevention, Risk Factors & Management</h1>
+    </div>
+
+    <div class="thyroid-navigation">
+        <a href="#intro">Introduction</a>
+        <span class="separator">|</span>
+        <a href="#causes">Causes and Risk Factors</a>
+        <span class="separator">|</span>
+        <a href="#symptoms">Symptoms and Signs</a>
+        <span class="separator">|</span>
+        <a href="#prevention">Prevention</a>
+        <!-- Add more article headings as needed -->
+    </div>   
+
+    <div class="thyroid-content">
+        <div class="thyroid-introduction" id="intro">
+            <h2>Introduction</h2>
+            <p>
+                The thyroid gland is a small, butterfly-shaped gland located in the front of the neck, just below the Adam's apple. It is a critical part of the endocrine system, responsible for producing and releasing hormones that regulate various metabolic processes in the body. The primary hormones produced by the thyroid gland are thyroxine (T4) and triiodothyronine (T3), which play a vital role in controlling the body's metabolism.
+            </p>
+        </div>
+
+        <div class="thyroid-types">
+            <h2>Two types of thyroid disorders</h2>
+            <p>
+                <B>Hypothyroidism</B> This occurs when the thyroid gland does not produce enough thyroid hormones. It can lead to symptoms such as fatigue, weight gain, cold intolerance, dry skin, and depression. The most common cause of hypothyroidism is an autoimmune condition called Hashimoto's thyroiditis.
+            </p>
+            <p>
+                <B>Hyperthyroidism</B>: This is the opposite of hypothyroidism, where the thyroid gland produces too many thyroid hormones. Symptoms can include weight loss, rapid heartbeat, nervousness, sweating, and heat intolerance. The most common cause of hyperthyroidism is an autoimmune condition known as Graves' disease.
+            </p>
+        </div>
+        <div class="thyroid-causes" id="causes">
+            <h2>Causes of Thyroid Disorders</h2>
+            <ul>
+                <li>Genetic predisposition: Thyroid disorders can have a genetic component, making individuals with a family history more susceptible.</li>
+                <li>Autoimmune conditions: Autoimmune diseases like Hashimoto's thyroiditis and Graves' disease can lead to thyroid dysfunction.</li>
+                <li>Iodine deficiency: Inadequate iodine intake can result in thyroid problems, such as goiter.</li>
+                <li>Thyroiditis: Inflammation of the thyroid, whether caused by infection or autoimmune reactions, can disrupt thyroid function.</li>
+                <li>Radiation exposure: Exposure to high levels of radiation, especially during medical treatments, can damage the thyroid gland.</li>
+            </ul>
+
+            <h2>Risk Factors for Thyroid Disorders</h2>
+            <ul>
+                <li>Gender: Thyroid disorders, particularly hypothyroidism, are more common in women.</li>
+                <li>Age: The risk of thyroid issues increases with age.</li>
+                <li>Family history: A family history of thyroid disorders raises the risk for developing similar conditions.</li>
+                <li>Environmental factors: Exposure to environmental toxins and pollutants may contribute to thyroid dysfunction.</li>
+                <li>Lifestyle factors: Stress, inadequate nutrition, and other lifestyle choices can impact thyroid health.</li>
+            </ul>
+        </div>
+        
+
+        <div class="thyroid-symptoms" id="symptoms">
+            <h2>Symptoms and Signs</h2>
+            <ul>
+                <li><b>Fatigue:</b> Feeling unusually tired, even after getting enough sleep.</li>
+                <li><b>Weight Changes:</b> Unexplained weight gain or loss.</li>
+                <li><b>Thyroid Nodules:</b> The presence of lumps or nodules in the thyroid gland.</li>
+                <li><b>Changes in Heart Rate:</b> Irregular heartbeat, rapid pulse (tachycardia), or slow pulse (bradycardia).</li>
+                <li><b>Changes in Skin and Hair:</b> Dry skin, brittle nails, and hair loss.</li>
+                <li><b>Mood Changes:</b> Mood swings, anxiety, or depression.</li>
+                <li><b>Bowel Issues:</b> Constipation or frequent bowel movements.</li>
+                <li><b>Muscle Weakness:</b> Weakness and muscle pain.</li>
+                <li><b>Menstrual Changes:</b> Irregular menstrual periods in women.</li>
+                <li><b>Intolerance to Temperature:</b> Sensitivity to cold or heat.</li>
+            </ul>
+        </div>   
+
+        <div class="thyroid-prevention" id="prevention">
+            <h2>Prevention of Thyroid Disorders</h2>
+            <h3>Diet:</h3>
+            <ul>
+                <li><b>Include Iodine:</b> Ensure your diet contains iodine-rich foods like iodized salt, seaweed, and seafood to support thyroid function.</li>
+                <li><b>Maintain Balanced Nutrition:</b> Eat a well-balanced diet with a variety of nutrients to support overall health, including vitamins and minerals like selenium and zinc.</li>
+                <li><b>Limit Goitrogenic Foods:</b> Reduce the consumption of foods known as goitrogens, such as cruciferous vegetables (e.g., broccoli, cabbage), as they can interfere with thyroid function when eaten in excess.</li>
+            </ul>
+        
+            <h3>Exercise:</h3>
+            <ul>
+                <li><b>Regular Physical Activity:</b> Engage in regular exercise to help maintain a healthy weight and support overall well-being.</li>
+                <li><b>Aerobic and Strength Training:</b> Include a mix of aerobic exercises like walking or cycling and strength training to promote metabolism and muscle health.</li>
+            </ul>
+        
+            <h3>Stress Management:</h3>
+            <ul>
+                <li><b>Stress Reduction:</b> Practice stress-reduction techniques such as yoga, meditation, deep breathing exercises, or mindfulness to manage stress effectively.</li>
+                <li><b>Adequate Sleep:</b> Ensure you get enough quality sleep, typically 7-9 hours per night, to support your body's stress response and overall health.</li>
+                <li><b>Time Management:</b> Manage your time effectively to reduce stress levels and prevent burnout.</li>
+            </ul>
+        </div>
+        
+        <div class="diabetes-disclaimer">
+            <h2>Disclaimer:</h2>
+            <p>The information provided on this website is for informational purposes only and is not a substitute for professional medical advice. Always consult with a healthcare professional for specific medical advice and recommendations.</p>
+        </div>
+    </div>
+    </div>
+
+    <!-- Rest of your content here -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add smooth scrolling to all anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            for (const link of anchorLinks) {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+        
+                    const targetId = this.getAttribute("href").substring(1); // Remove the '#' character
+                    const targetElement = document.getElementById(targetId);
+        
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            }
+        });
+        </script>
+    <!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>

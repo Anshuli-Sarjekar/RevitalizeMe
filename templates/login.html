@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginsignup.css') }}">
+    <title>Login - RevitalizeMe</title>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home </a></li>
+                <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                        <a href="{{ url_for('bp') }}">Hypertension</a>
+                        <a href="{{ url_for('cancer') }}">Cancer</a>
+                        <a href="{{ url_for('pcod') }}">PCOD</a>
+                        <a href="{{ url_for('heart') }}">Heart Attack</a>
+                        <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                        <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                    </div>
+                </li>
+                <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+            </ul>
+        </div>
+        <div class="user-options">
+            {% if 'user_id' in session %}
+                <div class = "hellouser">
+                    {% if 'user_id' in session %}
+                    <p>Hi, {{ session['user_fname'] }}</p>
+                    {% endif %}
+                </div>
+                <a href="{{ url_for('logout') }}">Log Out</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <span class="divider">|</span>
+                <a href="{{ url_for('signup') }}">Signup</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<!--Navigation bar ends-->
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            <div>
+                <div class = "email">
+                    {{ form.hidden_tag() }}
+                    {{ form.email.label }} 
+                    {{ form.email(size=32, placeholder="Enter your email") }}
+                </div>
+                <div class = "login-pass">
+                    {{ form.password.label }} 
+                    {{ form.password(size=32, placeholder="Enter your password") }}
+                </div>  
+            </div>
+            <div>
+                <button class = "loginsubmitbutton" type="submit">Login</button>
+            </div>
+        </form>
+        <!-- <p id="login-error" class="error">{{ get_flashed_messages() }}</p> -->
+        <p id="login-error" class="loginerror">
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+        </p>
+        <div class="newuser">
+            <p>New User?&nbsp;&nbsp;</p>
+            <a href="{{ url_for('signup') }}">Register Now</a>
+        </div>
+    </div>
+
+    <!-- Rest of your content here -->
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>

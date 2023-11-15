@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lifestylecss.css') }}">
+    <title>Type 2 Diabetes - RevitalizeMe</title>
+</head>
+<body class="lifestyle-body">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <section class="diabetes-hero">
+        <div class="container">
+        </div>
+    </section>
+
+   <div class = "lifestyle-container">
+    <div class="diabetes-title">
+        <h1>Type 2 Diabetes - Prevention, Risk Factors & Management</h1>
+    </div>
+
+    <div class="diabetes-navigation">
+        <a href="#intro">Introduction</a>
+        <span class="separator">|</span>
+        <a href="#causes">Causes and Risk Factors</a>
+        <span class="separator">|</span>
+        <a href="#prediabetes">Prediabetes</a>
+        <span class="separator">|</span>
+        <a href="#symptoms">Symptoms and Signs</a>
+        <span class="separator">|</span>
+        <a href="#prevention">Prevention</a>
+        <!-- Add more article headings as needed -->
+    </div>   
+
+    <div class="diabetes-content">
+        <div class="diabetes-introduction" id="introduction">
+            <h2>Introduction</h2>
+            <p>According to World Health Organization, "Diabetes is a chronic, metabolic disease characterized by elevated levels of blood glucose (or blood sugar), which leads over time to serious damage to the heart, blood vessels, eyes, kidneys and nerves." Type 2 diabetes arises primarily from two underlying factors: insufficient or absent insulin production, and the development of insulin resistance within the human body. This global health concern affects a staggering 422 million individuals, and tragically, results in approximately 1.5 million annual fatalities due to the condition.
+            </p>
+            <p> <b>Type 1</b>: Type 1 diabetes is an autoimmune condition in which the immune system targets and damages the insulin-producing cells in the pancreas. The exact trigger for this immune response remains unclear.
+            </p>
+            <p><b>Type 2</b>: Type 2 diabetes develops when the body's sensitivity to insulin diminishes, leading to elevated blood sugar levels. It is the most prevalent form, affecting around 90% to 95% of individuals with diabetes.
+            </p>
+            <p><b>Type 1.5</b>: Type 1.5 diabetes, also known as latent autoimmune diabetes in adults (LADA), typically emerges in adulthood and progresses gradually, resembling the onset of type 2 diabetes. LADA is an autoimmune disease and cannot be managed through dietary or lifestyle changes alone.
+            </p>
+            <p><b>Gestational</b>: Gestational diabetes occurs when there is elevated blood sugar levels during pregnancy. This condition results from insulin-blocking hormones produced by the placenta.
+            </p>
+            <p>
+            Furthur discussion on all the types is beyond the scope of this article. Our major focus is on Type 2 Diabetes - its causes, risk factors, prevention, treatment line etc.
+            </p>
+        </div>
+        <div class="diabetes-causes" id="causes">
+            <h2>Causes and Risk Factors</h2>
+            <p>Several factors contribute to the development of type 2 diabetes. Excess body weight or obesity, coupled with a sedentary lifestyle and an unhealthy diet, significantly elevate the risk. Accumulation of abdominal fat, often linked to poor lifestyle choices, intensifies this risk. Additionally, the consumption of alcohol and tobacco can further compound the likelihood of developing the condition. Genetics also play a role, as a family history of diabetes can increase susceptibility. Recognizing and addressing these risk factors is essential in the prevention and management of type 2 diabetes.
+            </p>
+            <ul>
+                <li>Being overweight</li>
+                <li>Being age 45 or older</li>
+                <li>Having a parent or sibling with the condition</li>
+                <li>Lack of physical activity</li>
+                <li>A history of gestational diabetes</li>
+                <li>Prediabetes</li>
+                <li>Other Lifestyle disorders - Hypertension, PCOD, high triglycerides</li>
+            </ul>
+        </div>
+        <div class = "diabetes-prediabetes" id="prediabetes"> 
+            <h2>Prediabetes</h2>
+            <p>Prediabetes signifies an elevated blood sugar level that surpasses the normal range but falls short of the diagnostic criteria for type 2 diabetes. However, individuals, both adults and children, with prediabetes face a heightened risk of developing type 2 diabetes if they don't implement lifestyle modifications. When prediabetes is present, the potential for long-term diabetes-related complications, particularly affecting the heart, blood vessels, and kidneys, may already be in motion. Fortunately, there is encouraging news. The transition from prediabetes to type 2 diabetes isn't inevitable.
+            </p>
+            <p>By adopting a healthy diet, incorporating regular physical activity into your daily routine, and maintaining a healthy weight, you can work towards restoring your blood sugar levels to the normal range. These same lifestyle changes effective in preventing type 2 diabetes in adults can also be beneficial in normalizing blood sugar levels in children.
+            </p>
+
+        </div>
+        <div class="diabetes-symptoms" id="symptoms">
+            <h2 style = "color: black;">Symptoms and Signs</h2>
+            <ul>
+                <li><b>Increased thirst</b>: When sugar builds up in your blood, your kidneys work overtime to get rid of it. This pulls fluids from your tissues and makes you dehydrated, so you feel thirsty.</li>
+                <li><b>Increased hunger</b>: Because diabetes can stop glucose from getting to your cells, you feel hungry, even after you've eaten.</li>
+                <li><b>Frequent urination</b>: You'll urinate more because your kidneys are working to get rid of extra sugar in your system.</li>
+                <li><b>Dry mouth</b>: Dehydration and frequent urination can drain moisture from your mouth as well.</li>
+                <li><b>Unexplained weight loss</b>: When you lose sugar through frequent urination, you lose calories, too. You might lose weight even though you're eating as usual.</li>
+                <li><b>Fatigue</b>: When your body can't use energy from food, you could feel weak and tired. Dehydration can make you feel this way, too.</li>
+                <li><b>Blurry vision</b>: High blood sugar can make you have trouble focusing.</li>
+                <li><b>Headaches</b>: High blood sugar levels can cause headaches.</li>
+                <li><b>Loss of consciousness</b>: After you exercise, skip a meal, or take too much medication, your blood sugar could go too low, and you could pass out.</li>
+                <li><b>Infections or sores that don't heal</b>: High blood sugar can slow blood flow and make it harder for your body to heal.</li>
+                <li><b>Tingling hands and feet</b>: Type 2 diabetes can affect nerves in your hands and feet.</li>
+                <li><b>Red, swollen, tender gums</b>: You might be more likely to get infections in your gums and the bones that hold your teeth in place. Your gums may get infected or pull away from your teeth. Your teeth might become loose.</li>
+            </ul>    
+        </div>
+        <div class="diabetes-prevention" id="prevention">
+            <h2>Prevention: Role of Diet, Physical Activity & Stress Management</h2>
+            <h3>Diet:</h3>
+            <ul>
+                <li>Maintain a balanced diet with an emphasis on whole grains, fruits, vegetables, and lean proteins.</li>
+                <li>Monitor carbohydrate intake and opt for complex carbohydrates.</li>
+                <li>Limit sugar-sweetened beverages and processed foods.</li>
+                <li>Keep portion sizes in check to manage calorie intake.</li>
+                <li>Pay attention to the glycemic index of foods consumed.</li>
+            </ul>
+            <h3>Physical Activity:</h3>
+            <ul>
+                <li>Engage in regular exercise to improve insulin sensitivity.</li>
+                <li>Aim for at least 150 minutes of moderate-intensity aerobic activity per week.</li>
+                <li>Include strength training exercises to build muscle and enhance metabolism.</li>
+                <li>Stay active throughout the day, incorporating walking and light activities.</li>
+            </ul>
+            <h3>Stress Management:</h3>
+            <ul>
+                <li>Practice stress reduction techniques such as meditation, yoga, or deep breathing exercises.</li>
+                <li>Ensure adequate sleep to help manage stress.</li>
+                <li>Establish a support network to share concerns and emotions.</li>
+                <li>Set realistic goals and manage time effectively to reduce stress levels.</li>
+            </ul>
+        </div>
+
+        <div class="diabetes-disclaimer">
+            <h2>Disclaimer:</h2>
+            <p>The information provided on this website is for informational purposes only and is not a substitute for professional medical advice. Always consult with a healthcare professional for specific medical advice and recommendations.</p>
+        </div>
+        
+        <div class="diabetes-references">
+            <h2>References and Sources:</h2>
+            <p>Credible sources and references have been used to provide the information on this website. Below are some of the sources referenced:</p>
+            <ul>
+                <li><a href="https://www.healthline.com/health/diabetes#risk-factors" target="_blank">Healthline - Everything You Need to Know About Diabetes</a></li>
+                <li><a href="https://www.webmd.com/diabetes/type-2-diabetes-symptoms" target="_blank">WebMD - Early Signs and Symptoms of Type 2 Diabetes</a></li>
+                <li><a href="https://www.mayoclinic.org/diseases-conditions/prediabetes/symptoms-causes/syc-20355278#:~:text=Prediabetes%20means%20you%20have%20a,to%20develop%20type%202%20diabetes." target="_blank">Mayo Clinic - Prediabetes</a></li>  
+            </ul>
+        </div>        
+        <!-- Your additional content goes here -->
+    </div>
+   </div>
+
+    <!-- Rest of your content here -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add smooth scrolling to all anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            for (const link of anchorLinks) {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+        
+                    const targetId = this.getAttribute("href").substring(1); // Remove the '#' character
+                    const targetElement = document.getElementById(targetId);
+        
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            }
+        });
+    </script>     
+<!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>

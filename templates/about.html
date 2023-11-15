@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - RevitalizeMe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aboutcss.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home </a></li>
+                    <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
+                    <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
+                    <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+                            <a href="{{ url_for('bp') }}">Hypertension</a>
+                            <a href="{{ url_for('cancer') }}">Cancer</a>
+                            <a href="{{ url_for('pcod') }}">PCOD</a>
+                            <a href="{{ url_for('heart') }}">Heart Attack</a>
+                            <a href="{{ url_for('thyroid') }}">Thyroid</a>
+                            <a href="{{ url_for('liver') }}">Fatty Liver</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                </ul>
+            </div>
+            <div class="user-options">
+                {% if 'user_id' in session %}
+                    <div class = "hellouser">
+                        {% if 'user_id' in session %}
+                        <p>Hi, {{ session['user_fname'] }}</p>
+                        {% endif %}
+                    </div>
+                    <a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <span class="divider">|</span>
+                    <a href="{{ url_for('signup') }}">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <!--Navigation bar ends-->
+    <section class="about-me">
+        <div class="about_container">
+            <h1><b>About Us - RevitalizeMe: Your Wellness Companion</b></h1>
+            <!-- <img src="your-profile-image.jpg" alt="Your Name"> -->
+            <p>
+                Welcome to RevitalizeMe, your ultimate destination for holistic well-being and a healthier lifestyle. I'm Anshuli Sarjekar, the founder and driving force behind this platform, and I'm delighted to introduce you to our mission and vision. We are more than just a website; we are your wellness companion, dedicated to empowering you on your journey towards a healthier and happier you.
+            </p>
+            <h2 style="font-weight: bold;">Our Mission</h2>
+            <p>
+                At RevitalizeMe, our mission is clear: to provide you with the tools, knowledge, and support you need to take control of your health and wellness. We understand that maintaining a healthy lifestyle can be a challenge, but we believe that everyone deserves to live their best life. Whether you're looking to lose weight, improve your fitness, or simply adopt healthier habits, we're here to guide you every step of the way.
+            </p>
+            <h2 style="font-weight: bold;">Why Choose RevitalizeMe?</h2>
+            <p>
+                We may not be registered dietitians or fitness coaches, but we are individuals who have experienced the transformative power of lifestyle changes in our own lives. We've harnessed our passion for wellness and nutrition to create a platform that empowers you to make informed decisions and achieve your health and fitness goals.
+            </p>
+            <p>At RevitalizeMe, we value the importance of reliable information and support, and we are committed to providing you with just that. Our commitment to your well-being is unwavering, and we take pride in being a trusted source of inspiration and knowledge.
+            </p>
+            <h2>Join the RevitalizeMe Community</h2>
+            <p>
+                Ready to embark on your journey to better health and vitality? Join our growing community of individuals who are striving to revitalize their lives. Sign up for a free account today, and let's walk this path together towards a healthier and happier you.
+            </p>
+            <p>
+                Remember, your wellness is a journey, not a destination, and we're here to guide you every step of the way. Thank you for choosing RevitalizeMe as your wellness companion. Together, we'll revitalize your life!
+            </p>
+            <p>
+                Welcome to a healthier, happier you.
+            </p>
+        </div>
+    </section>
+    <!-- Footer Section -->
+<div class="footer">
+    <div class="contact-info">
+        <p>Contact Info:</p>
+        <p>Anshuli Sarjekar</p>
+        <p>Phone Number: 7240356222</p>
+        <p>Email id: sarjekaranshuli@gmail.com</p>
+        <div class="message">
+            <form name = "submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows = "5" placeholder="Your Message" required></textarea>
+                <button type="submit" class = "message-button" name="submit">Send</button>
+            </form>     
+        </div>
+    </div>
+    <div class="links">
+        <a href="{{ url_for('home') }}">Home </a>
+        <a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a>
+        <a href="{{ url_for('recipes') }}">Healthy Recipes</a>
+        <a href="{{ url_for('logs') }}">Food Logs</a>
+        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('privacy') }}">Privacy Policy & Terms of Service</a>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </div>
+</div>
+</body>
+</html>

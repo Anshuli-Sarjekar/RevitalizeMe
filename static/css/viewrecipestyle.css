@@ -1,0 +1,276 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #451952;
+}
+
+header {
+    background-color: #f39f5a; /*Change to your desired color code */
+    color: #fff; /* Change text color to contrast with the background */
+    padding: 10px 0;
+    height: 100px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-top: 0;
+    margin-right: 0;
+    padding: 10px;
+}
+
+.logo {
+    margin-top: auto;
+}
+
+.logo-image{
+    height: 80px;
+    width: 80px;
+    padding: 0;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    color: black;
+    width: 100%;
+}
+
+.nav-links li {
+    margin-right: 25px;
+    font-size: 16px;
+}
+
+.nav-links a {
+    color: black; /* Change link color */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s; /* Add a smooth color transition on hover */
+}
+
+.nav-links a:hover {
+    color: rgb(239, 8, 69); /* Change the color on hover to a different color */
+}
+
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f39f5a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 16px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+
+.user-options a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px; /* Adjust the margin as needed */
+    display: inline;
+}
+
+.user-options a:hover{
+    color: rgb(239, 8, 69);
+}
+
+.divider {
+    color: black;
+    font-weight: bold;
+}
+
+.hellouser p{
+    color: black;
+    font-size: 18px;
+    margin-top: -35px;
+    font-weight: bold;
+}
+
+/* Style for the recipe details section */
+.recipecontainer {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 20px auto; /* Center the container and add some margin */
+    background-color: #f9f9f9; /* Change to your desired background color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color:#333
+}
+
+.recipelogo {
+    width: 30px; /* Adjust the width to your preferred size */
+    height: 30px; /* Adjust the height to your preferred size */
+    margin-right: 8px; /* Add spacing between the logo and text */
+    vertical-align: middle; /* Align the logo vertically with text */
+}
+
+/* Style for the h1 element (Recipe Name) */
+h1 {
+    font-size: 28px; /* Increase the font size */
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Style for the time section */
+.time-section {
+    display: flex; /* Use flexbox for a horizontal layout */
+    justify-content: space-between; /* Space elements evenly within the container */
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+/* Style for individual time paragraphs */
+.time-section p {
+    flex: 1; /* Allow the paragraphs to grow and occupy equal space */
+}
+
+/* Style for the nutritional information box */
+.nutritional-info-box {
+    border: 2px solid #000; /* Add a border around the box */
+    border-radius: 10px;
+    max-width:200px;
+    padding: 20px; /* Add padding inside the box for spacing */
+    margin: 20px 0; /* Add margin for spacing around the box */
+    background-color: rgb(57, 7, 57);
+    color: white;
+}
+
+/* Style for individual nutritional items within the box */
+.nutritional-item {
+    margin: 10px 0; /* Add margin for spacing between nutritional items */
+}
+
+/* Style for the heading (Nutritional Information) */
+.nutritional-info-box h3 {
+    font-size: 18px; /* Increase font size for the heading */
+}
+
+
+/* Style for dietary types and meal types sections */
+.container p {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Style for ordered lists (OL) in recipe details */
+ol {
+    list-style-type: decimal; /* Start the numbers with 1 */
+    text-align: justify; /* Justify the text within the list items */
+    padding-left: 20px; /* Add left padding for better alignment */
+    
+}
+
+/* Style for list items (LI) within the ordered list */
+ol li {
+    margin-left: 10px; /* Reset default margin */
+}
+
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+.contact-info {
+    float: left;
+    width: 50%;
+    margin-left: 200px;
+}
+.contact-info p {
+    margin: 0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.message form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -200px;
+}
+.message form input{
+    width: 40%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the inputs */
+}
+.message form textarea{
+    height: 100px;
+    width: 40%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the inputs */
+}
+.message-button {
+    width: 80px;
+    text-align: center;
+    background-color: #662549;
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    border: 1px black solid;
+    
+}
+.links {
+    /* float: right; */
+    width: 50%;
+    text-align: left;
+    /* flex-direction: column; */
+    align-items: start;
+    margin-right: 50px;
+    margin-top: 20px; /* Adjust as needed */
+}
+.links a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px; /* Adjust as needed */
+    /* margin-bottom: 5px; */
+}
+.copyright {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
