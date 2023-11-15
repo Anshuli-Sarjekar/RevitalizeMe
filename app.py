@@ -99,6 +99,10 @@ def load_user(user_id):
     print(f"Loading user: {user_id}")
     return User.query.get(int(user_id))
 
+@app.route('/health')
+def health_check():
+    return 'OK', 200
+
 @app.route('/')
 def home():
     form = LoginForm()
@@ -547,30 +551,6 @@ def logout():
         flash('Signup successful!', 'success')
         request.session = None
     return redirect(url_for('login'))
-
-# @app.route('/submit_message', methods=['POST'])
-# def submit_message():
-#     print("submit_message function called.")
-#     if request.method == 'POST':
-#         name = request.form.get('name')
-#         email = request.form.get('email')
-#         message_content = request.form.get('message')
-#         print(f"Received message from {name} ({email}): {message_content}")
-
-#         # Assuming you have a Message model
-#         new_message = Message(user_id=None, name=name, email=email, message=message_content)
-
-#         try:
-#             db.session.add(new_message)
-#             db.session.commit()
-#             print("Message added to the database successfully.")
-#         except Exception as e:
-#             print(f"Error adding message to the database: {str(e)}")
-#             db.session.rollback()
-#         finally:
-#             db.session.close()
-
-#     return ''
 
 if __name__ == '__main__':
     app.run(debug=False)
