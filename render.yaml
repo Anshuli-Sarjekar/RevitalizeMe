@@ -1,0 +1,3 @@
+services:
+  - name: revitalizeme
+    buildCommand: /bin/bash /renderbuild.sh
