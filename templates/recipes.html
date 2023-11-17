@@ -128,20 +128,7 @@
     <div class="recipe-container">
         {% endfor %}
     </div>
-    
-    <!-- <div class="pagination">
-        {% if current_set > 0 %}
-            <a href="{{ url_for('recipes', page=first_page_in_set - 1) }}" class="pagination-button">Previous</a>
-        {% endif %}
-        <div class="page-buttons">
-            {% for page_num in range(first_page_in_set, last_page_in_set + 1) %}
-                <a href="{{ url_for('recipes', page=page_num) }}" class="pagination-button{% if page_num == page %} active{% endif %}">{{ page_num }}</a>
-            {% endfor %}
-        </div>
-        {% if last_page_in_set < totalPages %}
-            <a href="{{ url_for('recipes', page=last_page_in_set + 1) }}" class="pagination-button">Next</a>
-        {% endif %}
-    </div> -->
+
     <div class="pagination">
         {% if current_set > 0 %}
             <a href="{{ url_for('recipes', page=first_page_in_set - 1, dietary_filter=dietary_filter, course_filter=course_filter) }}" class="pagination-button">Previous</a>
@@ -155,6 +142,7 @@
             <a href="{{ url_for('recipes', page=last_page_in_set + 1, dietary_filter=dietary_filter, course_filter=course_filter) }}" class="pagination-button">Next</a>
         {% endif %}
     </div>    
+    
 <script>
     document.getElementById('course-filter').value = "all";
     document.getElementById('dietary-filter').value = "all";

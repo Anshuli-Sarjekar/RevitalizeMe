@@ -437,6 +437,18 @@ input[type="checkbox"] {
         font-size: 20px;
     }
 
+    .filter{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pagination-button{
+        margin: 0;
+        padding: 0;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
+    }
+
     .footer{
         display: flex;
         padding: 10px;
