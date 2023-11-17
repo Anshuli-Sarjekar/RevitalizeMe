@@ -1614,3 +1614,159 @@ header {
     border-radius: 15px;
     color: black;
 }
+
+
+@media screen and (max-width: 1100px) {
+    .body{
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #451952;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0;
+        margin-right: 0;
+        padding: 10px;
+        max-width: 100%;
+        height: 50px;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .burger-icon {
+        display: block;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        left: 15px;
+    }
+    .line {
+        width: 100%;
+        height: 5px;
+        background-color: #000; /* Adjust the color as needed */
+        margin: 4px 0;
+        transition: 0.4s;
+    }
+    .nav-links{
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #f39f5a; /* Adjust background color as needed */
+        position: absolute;
+        top: 50px; /* Adjust as needed */
+        left: 0;
+        width: 60vw;
+        height: 100vh;
+        margin-top: 60px;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .nav-links ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+    .nav-links li {
+        margin-bottom: 12vh; 
+    }
+
+    .nav-links a {
+        color: black;
+        font-weight: bold;
+        font-size: 22px;
+        text-decoration: none;
+        transition: color 0.3s; 
+    }
+
+    .nav-links a:hover {
+        color: rgb(239, 8, 69); 
+    }
+    .dropdown-arrow::after {
+        content: '\25BE'; 
+        display: inline-block;
+        margin-left: 5px; 
+        color: #000;
+        font-size: 15px;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown-content {
+        display: none;
+    }
+
+    .user-options{
+        position: absolute;
+        right: 5px;
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    .user-options p{
+        position: absolute;
+        right: 5px;
+        margin-top: 35px;
+        font-size: 20px;
+    }
+
+    .footer{
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+    }
+
+    .message{
+        margin-right: auto;
+        width: 100%;
+    }
+    .contact-info{
+        width: 40%;
+        margin-left: 0;
+    }
+    .links{
+        width: 40%;
+        margin-right: 10px;
+    }
+    .message{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .message form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .message form input{
+        width: 40%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc; /* Light gray border */
+        border-radius: 4px; /* Rounded corners for the inputs */
+    }
+    .message form textarea{
+        height: 100px;
+        width: 40%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc; /* Light gray border */
+        border-radius: 4px; /* Rounded corners for the inputs */
+    }
+    .copyright{
+        position: aboslute;
+        bottom: 0;
+        margin-top: 100px;
+    }
+}

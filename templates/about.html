@@ -13,14 +13,19 @@
             <div class="logo">
                 <img src="{{ url_for('static', filename='images/your-logo.jpg') }}" alt="RevitalizeMe logo" class="logo-image">
             </div>
-            <div class="nav-links">
+            <div class="burger-icon" onclick="toggleNav()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="nav-links" id="nav-links">
                 <ul>
                     <li><a href="{{ url_for('home') }}">Home </a></li>
                     <li><a href="{{ url_for('calculator') }}">BMR and Macronutrient Calculator</a></li>
                     <li><a href="{{ url_for('recipes') }}">Healthy Recipes</a></li>
                     <li><a href="{{ url_for('logs') }}">Food Logs</a></li>
                     <li class="dropdown">
-                        <a href="{{ url_for('disorders') }}">Lifestyle Disorders</a>
+                        <a>Lifestyle Disorders <span class="dropdown-arrow"></span></a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('diabetes') }}">Diabetes</a>
                             <a href="{{ url_for('bp') }}">Hypertension</a>
@@ -31,7 +36,6 @@
                             <a href="{{ url_for('liver') }}">Fatty Liver</a>
                         </div>
                     </li>
-                    <!-- <li><a href="{{ url_for('blog') }}">Blog</a></li> -->
                     <li><a href="{{ url_for('about') }}">About Us</a></li>
                 </ul>
             </div>
@@ -42,13 +46,17 @@
                         <p>Hi, {{ session['user_fname'] }}</p>
                         {% endif %}
                     </div>
-                    <a href="{{ url_for('logout') }}">Log Out</a>
+                    <div class="logoutdelete">
+                        <a href="{{ url_for('logout') }}">Log Out</a>
+                    </div>    
                 {% else %}
-                    <a href="{{ url_for('login') }}">Login</a>
-                    <span class="divider">|</span>
-                    <a href="{{ url_for('signup') }}">Signup</a>
+                    <div class = "loginsignup">
+                        <a href="{{ url_for('login') }}">Login&nbsp;&nbsp;</a>
+                        <span class="divider">|</span>
+                        <a href="{{ url_for('signup') }}">&nbsp;&nbsp;Signup</a>
+                    </div>
                 {% endif %}
-            </div>
+            </div>         
         </div>
     </header>
     <!--Navigation bar ends-->
@@ -110,5 +118,24 @@
         <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
     </div>
 </div>
+<script>
+    function toggleNav() {
+    var navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("show");
+    }
+
+    $(document).ready(function(){
+        $('.dropdown-arrow').click(function(e) {
+            e.preventDefault();
+            $(this).parent().next('.dropdown-content').toggle();
+        });
+
+        $('.dropdown').hover(function() {
+            $(this).find('.dropdown-arrow').css('color', 'red');
+        }, function() {
+            $(this).find('.dropdown-arrow').css('color', 'black'); /* Change back to default color */
+        });
+    });
+</script>
 </body>
 </html>

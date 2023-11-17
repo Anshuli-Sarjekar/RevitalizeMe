@@ -400,8 +400,27 @@ def process_meals():
                                           "Protein (g)", "Serving Size (g)", "Fiber (g)", "Sugar (g)", "Cholesterol (mg)",
                                           "Saturated Fat (g)", "Potassium (mg)", "Sodium (mg)"], tablefmt="html")
 
-    # return table_html
-    return render_template('logs.html', table_html=table_html, totals = totals)
+    df = pd.DataFrame(table, columns=["Meal Name", "Name", "Calories", "Total Fat (g)", "Total Carbohydrates (g)",
+                                  "Protein (g)", "Serving Size (g)", "Fiber (g)", "Sugar (g)", "Cholesterol (mg)",
+                                  "Saturated Fat (g)", "Potassium (mg)", "Sodium (mg)"])
+
+    # Create a DataFrame with the desired fields as a single row
+    fields_order = ["Meal Name", "Name", "Calories", "Total Fat (g)", "Total Carbohydrates (g)",
+                    "Protein (g)", "Serving Size (g)", "Fiber (g)", "Sugar (g)", "Cholesterol (mg)",
+                    "Saturated Fat (g)", "Potassium (mg)", "Sodium (mg)"]
+    fields_df = pd.DataFrame([fields_order], columns=df.columns)
+
+    # Concatenate the fields DataFrame with the original DataFrame
+    final_df = pd.concat([fields_df, df])
+
+    # Transpose the DataFrame
+    transposed_df = final_df.transpose()
+    # Remove the second column from the transposed DataFrame
+    transposed_df = transposed_df.iloc[:, 1:]
+
+    # Convert the transposed DataFrame to an HTML table
+    transposed_table_html = transposed_df.to_html(header=False)
+    return render_template('logs.html', table_html=table_html, transposed_table_html=transposed_table_html, totals = totals)
 
 @app.route('/lifestyle-disorders')
 def disorders():
