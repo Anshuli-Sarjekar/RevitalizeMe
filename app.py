@@ -57,30 +57,6 @@ class LoginForm(FlaskForm):
 class DeleteAccountForm(FlaskForm):
     submit = SubmitField("Delete Account")
 
-class Meals(db.Model):
-    __tablename__ = 'meals'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, nullable=False)
-    meal_date = db.Column(db.Date, nullable=False)
-    meal_type = db.Column(db.String(255), nullable=False)
-    description = db.Column(db.Text, nullable=False)
-    calories = db.Column(db.Float)
-    protein = db.Column(db.Float)
-    carbohydrates = db.Column(db.Float)
-    fats = db.Column(db.Float)
-    created_at = db.Column(db.TIMESTAMP)
-
-    def __init__(self, user_id, meal_type, description, calories, protein, carbohydrates, fats):
-        self.user_id = user_id
-        self.meal_date = datetime.now().date()
-        self.meal_type = meal_type
-        self.description = description
-        self.calories = calories
-        self.protein = protein
-        self.carbohydrates = carbohydrates
-        self.fats = fats
-        self.created_at = datetime.now()
-
 class Message(db.Model):
     __tablename__ = 'message'
     id = db.Column(db.Integer, primary_key=True)
@@ -499,9 +475,6 @@ def signup():
                 flash('An account is already registered with this email address. Please use a different email.', 'danger')
             else:
                 flash(f'Error: {str(e)}', 'danger')
-        except Exception as e:
-            db.session.rollback()  # Rollback the transaction on error
-            flash(f'Error: {str(e)}', 'danger')
         except OperationalError as e:
             db.session.rollback()
             flash('An operational error occurred. Please try again later.', 'danger')
