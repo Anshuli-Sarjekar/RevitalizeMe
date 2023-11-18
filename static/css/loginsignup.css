@@ -468,6 +468,61 @@ header {
         margin-top: 35px;
         font-size: 20px;
     }
+    
+    /* Login Page Styles */
+    .login-container {
+        max-width: 70vw;
+        margin: 50px auto;
+        margin-bottom: 100px;
+        padding: 10px;
+        text-align: center;
+        max-height: 400px;
+    }
+
+    .login-container h2 {
+        font-size: 1.5rem;
+    }
+
+    #login-form {
+        display: flex;
+        flex-direction: column; /* Stack the elements vertically */
+        align-items: center; /* Center the elements horizontally */
+    }
+
+    .email{
+        display: flex;
+        margin-left: 2.5%; /* Add margin for spacing */
+        text-align: left;
+        font-size: 15px;
+        max-width: 80%; /* Expand the elements to fill the container width */
+        margin-bottom: 10px; /* Add margin to create space between label and input */
+    }
+
+    .email label {
+        display: inline-block; 
+        margin-left: 2%;
+    }
+
+    .login-pass{
+        display: flex;
+        margin-left: 2.5%; 
+        text-align: left;
+        font-size: 15px;
+        max-width: 80%; 
+        margin-bottom: 10px; 
+    }
+
+    .login-pass label {
+        display: inline-block;
+        margin-left: 2%;
+    }
+    .emailinput{
+        max-width: 70%;
+    }
+    .passinput{
+        max-width: 70%;
+    }
+
     .signup-container{
         width: 60vw;
     }

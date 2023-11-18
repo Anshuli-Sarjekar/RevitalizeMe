@@ -437,16 +437,38 @@ input[type="checkbox"] {
         font-size: 20px;
     }
 
+    .recipes-heading{
+        font-size: 1.5rem;
+    }
+    
     .filter{
         display: flex;
         flex-direction: column;
     }
-
-    .pagination-button{
-        margin: 0;
-        padding: 0;
-        padding-top: 2.5px;
-        padding-bottom: 2.5px;
+    
+    .pagination {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: flex-start; 
+        align-content: flex-start;
+    }
+    
+    .pagination-button {
+        padding: 10px 10px;
+        background-color: pink;
+        color: black;
+        border: 2px solid #451952;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+        border-radius: 5px; 
+        white-space: nowrap; 
+        display: inline-block;
+        align-items: center;
+    }
+    
+    .pagination-button:hover {
+        background-color: black;
+        color: white;
     }
 
     .footer{
